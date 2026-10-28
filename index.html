@@ -9,16 +9,16 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23B8321F'/%3E%3Ctext x='32' y='30' font-family='Arial' font-weight='700' font-size='22' fill='%23fff' text-anchor='middle'%3E31%3C/text%3E%3Ctext x='32' y='54' font-family='Arial' font-weight='700' font-size='22' fill='%23fff' text-anchor='middle'%3E33%3C/text%3E%3C/svg%3E">
 <title>SPACE 3133</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="1919년 3월 1일, 서른세 사람이 선언서를 읽은 인사동에서 AI와 전통을 잇는 공간, 스페이스 3133.">
+<meta name="description" content="전통의 거리에서, 사람과 기술이 공존한다. 1919년 3월 1일 서른세 사람이 선언서를 읽은 인사동에서 AI와 전통이 함께 사는 건물, 스페이스 3133.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
-/* Layout: 낙관 도장이 찍힌 한지 문서처럼 — 먹색 띠(선언)와 한지 면(안내)이 번갈아 내려가는 세로 두루마리 */
+/* Layout: 건물 단면처럼 위에서 아래로 — 먹색 띠(선언·벙커)와 한지 면(지상 경험)이 번갈아 내려가는 세로 두루마리 */
 :root{
   --paper:#F3EFE6; --paper-2:#FBF9F4; --ink:#171717; --ink-soft:#57524A;
-  --line:#DCD5C6; --seal:#B8321F; --seal-ink:#FFFFFF; --jjok:#24305E;
-  --band:#171717; --band-fg:#F3EFE6; --band-soft:#BDB6A8; --band-line:#3B3833;
+  --line:#DCD5C6; --seal:#B8321F; --seal-ink:#FFFFFF; --jjok:#24305E; --jjok-soft:#E4E7F1;
+  --band:#171717; --band-fg:#F3EFE6; --band-soft:#BDB6A8; --band-line:#3B3833; --band-accent:#E08A72;
   --card:#FFFFFF;
   --f-display:"Noto Serif KR","Nanum Myeongjo",serif;
   --f-body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
@@ -26,32 +26,34 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#141312; --paper-2:#1B1A18; --ink:#EEE9DF; --ink-soft:#ADA699;
-  --line:#34312C; --seal:#C9452F; --seal-ink:#FFFFFF; --jjok:#8E9BD0;
-  --band:#0B0B0A; --band-fg:#EEE9DF; --band-soft:#A39C8F; --band-line:#2E2C28;
+  --line:#34312C; --seal:#C9452F; --seal-ink:#FFFFFF; --jjok:#8E9BD0; --jjok-soft:#1E2235;
+  --band:#0B0B0A; --band-fg:#EEE9DF; --band-soft:#A39C8F; --band-line:#2E2C28; --band-accent:#E08A72;
   --card:#1E1C1A; color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#141312; --paper-2:#1B1A18; --ink:#EEE9DF; --ink-soft:#ADA699;
-  --line:#34312C; --seal:#C9452F; --seal-ink:#FFFFFF; --jjok:#8E9BD0;
-  --band:#0B0B0A; --band-fg:#EEE9DF; --band-soft:#A39C8F; --band-line:#2E2C28;
+  --line:#34312C; --seal:#C9452F; --seal-ink:#FFFFFF; --jjok:#8E9BD0; --jjok-soft:#1E2235;
+  --band:#0B0B0A; --band-fg:#EEE9DF; --band-soft:#A39C8F; --band-line:#2E2C28; --band-accent:#E08A72;
   --card:#1E1C1A; color-scheme:dark}
 
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--seal);outline-offset:3px;border-radius:4px}
 h1,h2,h3{text-wrap:balance;margin:0}
 p{margin:0}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-.latin{font-family:var(--f-latin)}
 .eyebrow{font-family:var(--f-latin);font-weight:500;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--seal)}
-.btn{display:inline-flex;align-items:center;gap:.5em;min-height:48px;padding:0 24px;border-radius:999px;font-weight:700;text-decoration:none;border:1px solid transparent;transition:transform .15s ease,background .15s ease}
+.btn{display:inline-flex;align-items:center;gap:.5em;min-height:48px;padding:0 24px;border-radius:999px;font-weight:700;text-decoration:none;border:1px solid transparent;transition:transform .15s ease}
 .btn:hover{transform:translateY(-1px)}
 .btn-seal{background:var(--seal);color:var(--seal-ink)}
 .btn-ink{background:var(--ink);color:var(--paper)}
 .btn-line{border-color:currentColor}
+.muted{color:var(--ink-soft)}
+.note{font-size:.88rem;color:var(--ink-soft)}
 
-/* seal */
 .seal{display:grid;grid-template-columns:1fr 1fr;align-items:center;justify-items:center;background:var(--seal);color:var(--seal-ink);font-family:var(--f-latin);font-weight:700;line-height:1}
 
 /* header */
@@ -60,22 +62,22 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand .seal{width:38px;height:38px;padding:4px;border-radius:5px;font-size:14px}
 .brand b{font-family:var(--f-latin);font-size:1.15rem;letter-spacing:.06em}
-.menu{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;font-size:.95rem}
+.menu{display:flex;flex-wrap:wrap;align-items:center;gap:6px 20px;font-size:.95rem}
 .menu a{text-decoration:none;color:var(--ink-soft)}
 .menu a:hover{color:var(--ink)}
 .lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
 .lang button{font:600 .8rem var(--f-latin);letter-spacing:.08em;padding:6px 12px;min-height:36px;border:0;background:transparent;color:var(--ink-soft);cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-@media (max-width:760px){.menu .m-hide{display:none}}
+@media (max-width:860px){.menu .m-hide{display:none}}
 
 /* hero */
 .hero{background:var(--band);color:var(--band-fg);overflow:hidden}
 .hero .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:48px;padding-block:88px 96px}
 .hero-copy{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:26px}
-.hero .eyebrow{color:#D9B8A8}
-.hero h1{font-family:var(--f-display);font-weight:900;font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.2;letter-spacing:-.01em}
-.hero h1 em{font-style:normal;color:var(--seal);filter:brightness(1.25)}
-.hero p.lead{font-size:clamp(1.02rem,1.6vw,1.18rem);color:var(--band-soft);max-width:36em}
+.hero .eyebrow{color:var(--band-accent)}
+.hero h1{font-family:var(--f-display);font-weight:900;font-size:clamp(2.3rem,5.6vw,4.4rem);line-height:1.22;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--band-accent)}
+.hero p.lead{font-size:clamp(1.02rem,1.6vw,1.16rem);color:var(--band-soft);max-width:36em}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px}
 .hero .btn-line{color:var(--band-fg)}
 .hero .meta{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:.88rem;color:var(--band-soft)}
@@ -84,69 +86,124 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 @keyframes stamp{from{transform:rotate(0) scale(1.12)}to{transform:rotate(-4deg) scale(1)}}
 @media (prefers-reduced-motion:reduce){.hero-seal .seal{animation:none}.btn{transition:none}}
 
-/* sections */
 section.block{padding-block:96px}
-.head{display:flex;flex-direction:column;gap:12px;max-width:40em;margin-bottom:48px}
+.head{display:flex;flex-direction:column;gap:12px;max-width:42em;margin-bottom:48px}
 .head h2{font-family:var(--f-display);font-weight:700;font-size:clamp(1.8rem,3.6vw,2.7rem);line-height:1.3}
 .head p{color:var(--ink-soft)}
 
-/* why */
-.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px}
-.why article{border-top:2px solid var(--ink);padding-top:24px;display:flex;flex-direction:column;gap:10px}
-.why .num{font-family:var(--f-latin);font-weight:700;font-size:clamp(3.4rem,6vw,4.6rem);line-height:1;color:var(--seal);letter-spacing:-.02em}
-.why h3{font-size:1.15rem}
-.why p{color:var(--ink-soft)}
+/* coexist */
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:32px}
+.three article{border-top:2px solid var(--ink);padding-top:22px;display:flex;flex-direction:column;gap:10px}
+.three h3{font-family:var(--f-display);font-size:1.3rem}
+.three p{color:var(--ink-soft)}
 
-/* floors */
-.floors-sec{background:var(--paper-2);border-block:1px solid var(--line)}
-.loc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px;align-items:start}
-.loc-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:32px;display:flex;flex-direction:column;gap:20px;min-width:0}
-.loc-card.soon{background:transparent;border-style:dashed}
-.loc-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}
-.tag{font:700 .72rem var(--f-latin);letter-spacing:.16em;padding:5px 10px;border-radius:4px;background:var(--seal);color:var(--seal-ink)}
-.tag.jjok{background:var(--jjok);color:var(--paper)}
-.url{font-family:var(--f-latin);font-size:.9rem;color:var(--ink-soft);word-break:break-all}
-.loc-card h3{font-family:var(--f-display);font-size:1.9rem}
-.floors{list-style:none;margin:0;padding:0}
-.floors li{display:grid;grid-template-columns:84px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
-.floors li:last-child{border-bottom:1px solid var(--line)}
-.floors .fl{font:700 .95rem var(--f-latin);letter-spacing:.04em}
-.floors .nm{font-weight:700;display:block}
-.floors .ds{color:var(--ink-soft);font-size:.93rem}
+/* name */
+.name-sec{background:var(--paper-2);border-block:1px solid var(--line)}
+.name-grid{display:flex;flex-wrap:wrap;gap:48px}
+.name-intro{flex:1 1 300px;display:flex;flex-direction:column;gap:18px}
+.name-intro .big{font-family:var(--f-latin);font-weight:700;font-size:clamp(4rem,9vw,6.5rem);line-height:.9;color:var(--seal);letter-spacing:-.03em}
+.name-intro blockquote{margin:0;font-family:var(--f-display);font-weight:700;font-size:1.35rem;line-height:1.5}
+.symbols{flex:999 1 520px;min-width:0;list-style:none;margin:0;padding:0}
+.symbols li{display:grid;grid-template-columns:minmax(0,9.5em) minmax(0,1fr);gap:20px;padding:16px 0;border-top:1px solid var(--line)}
+.symbols li:last-child{border-bottom:1px solid var(--line)}
+.symbols .k{font-weight:700}
+.symbols .k small{display:block;font-weight:400;color:var(--ink-soft);font-size:.82rem}
+@media (max-width:520px){.symbols li{grid-template-columns:1fr;gap:4px}}
+
+/* building section */
+.building{display:flex;flex-wrap:wrap;gap:32px;align-items:stretch}
+.floors{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:10px;list-style:none;margin:0;padding:0}
+.floor{display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;align-items:start;padding:20px 22px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.floor .fl{font:700 1.05rem var(--f-latin);letter-spacing:.02em;padding-top:2px}
+.floor h3{font-size:1.15rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.floor h3 small{font:500 .78rem var(--f-latin);letter-spacing:.12em;color:var(--ink-soft)}
+.floor p{color:var(--ink-soft);font-size:.95rem;margin-top:4px}
+.floor .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{font-size:.8rem;padding:2px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink-soft)}
+.floor.out{background:transparent;border-style:dashed}
+.floor.bunker{background:var(--band);color:var(--band-fg);border-color:var(--band)}
+.floor.bunker p,.floor.bunker h3 small{color:var(--band-soft)}
+.floor.bunker .chip{border-color:var(--band-line);color:var(--band-soft)}
+.floor.bunker .fl{color:var(--band-accent)}
+.legend{flex:1 1 240px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:4px 0}
+.legend div{border-left:2px solid var(--ink);padding-left:16px;display:flex;flex-direction:column;gap:4px}
+.legend b{font-family:var(--f-display);font-size:1.15rem}
+.legend span{color:var(--ink-soft);font-size:.92rem}
+.legend .up{border-left-color:var(--seal)}
+.legend .up b{color:var(--seal)}
 
 /* programs */
-.ladder{background:var(--jjok);color:var(--paper);border-radius:12px;padding:clamp(28px,4vw,48px);display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;margin-bottom:24px}
+.ladder{background:var(--jjok);color:var(--paper);border-radius:12px;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:28px;margin-bottom:24px}
 :root[data-theme="dark"] .ladder{color:#10131F}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ladder{color:#10131F}}
-.ladder-copy{flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.ladder-top{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between}
+.ladder-top > div{flex:999 1 420px;min-width:0;display:flex;flex-direction:column;gap:10px}
 .ladder .k{font:500 .8rem var(--f-latin);letter-spacing:.16em;opacity:.85}
 .ladder h3{font-family:var(--f-display);font-size:clamp(1.6rem,3vw,2.1rem)}
-.steps{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.92rem}
-.steps li{border:1px solid currentColor;border-radius:999px;padding:4px 14px;opacity:.95}
-.steps .arr{border:0;padding:0;opacity:.7}
 .ladder .btn{background:var(--paper);color:var(--ink)}
-.progs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px}
-.prog{border:1px solid var(--line);border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:10px;background:var(--card)}
-.prog .k{font:500 .78rem var(--f-latin);letter-spacing:.16em;color:var(--ink-soft)}
-.prog h3{font-size:1.2rem}
-.prog p{color:var(--ink-soft);font-size:.95rem}
+.rungs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px;counter-reset:r}
+.rungs li{border:1px solid currentColor;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.rungs .lv{font:700 .8rem var(--f-latin);letter-spacing:.12em;opacity:.8}
+.rungs b{font-size:1.02rem;line-height:1.4}
+.rungs span{font-size:.86rem;opacity:.85}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px}
+.card{border:1px solid var(--line);border-radius:10px;padding:26px;display:flex;flex-direction:column;gap:10px;background:var(--card)}
+.card .k{font:500 .78rem var(--f-latin);letter-spacing:.16em;color:var(--ink-soft)}
+.card h3{font-size:1.18rem}
+.card p{color:var(--ink-soft);font-size:.95rem}
+
+/* robots */
+.robots-sec{background:var(--paper-2);border-block:1px solid var(--line)}
+.robots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px}
+.robot{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:12px}
+.robot .no{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.robot .no b{font:700 2rem var(--f-latin);color:var(--seal);line-height:1}
+.tag{font:700 .72rem var(--f-latin);letter-spacing:.14em;padding:4px 10px;border-radius:4px;background:var(--seal);color:var(--seal-ink)}
+.tag.jjok{background:var(--jjok);color:var(--paper)}
+.tag.ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--line)}
+.robot h3{font-size:1.2rem}
+.robot p{color:var(--ink-soft);font-size:.95rem}
+.steps{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:.9rem}
+.steps li{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:10px}
+.steps time{font-family:var(--f-latin);color:var(--ink-soft);font-variant-numeric:tabular-nums}
+
+/* membership */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px}
+.tier{border:1px solid var(--line);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:8px;background:var(--card)}
+.tier .lv{font:700 .75rem var(--f-latin);letter-spacing:.14em;color:var(--ink-soft)}
+.tier h3{font-family:var(--f-display);font-size:1.3rem}
+.tier .who{font-size:.92rem;color:var(--ink-soft)}
+.tier ul{margin:6px 0 0;padding-left:1.1em;font-size:.9rem;display:flex;flex-direction:column;gap:2px}
+.tier.top{background:var(--band);color:var(--band-fg);border-color:var(--band)}
+.tier.top .lv,.tier.top .who{color:var(--band-soft)}
+.tier.top h3{color:var(--band-accent)}
 
 /* declaration */
 .decl{background:var(--band);color:var(--band-fg)}
 .decl .wrap{display:flex;flex-wrap:wrap;gap:56px;padding-block:104px}
-.decl-main{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:28px}
-.decl .eyebrow{color:#D9B8A8}
-.decl blockquote{margin:0;font-family:var(--f-display);font-weight:700;font-size:clamp(1.45rem,2.8vw,2.15rem);line-height:1.6}
+.decl-main{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:26px}
+.decl .eyebrow{color:var(--band-accent)}
+.decl h2{font-family:var(--f-display);font-weight:900;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.4}
+.decl blockquote{margin:0;font-family:var(--f-display);font-weight:600;font-size:clamp(1.1rem,2vw,1.35rem);line-height:1.8;color:var(--band-soft);border-left:2px solid var(--band-accent);padding-left:20px}
 .decl cite{font-style:normal;color:var(--band-soft);font-size:.92rem}
-.vows{flex:1 1 300px;display:flex;flex-direction:column;gap:0}
+.vows{flex:1 1 300px;display:flex;flex-direction:column}
 .vows h3{font-size:1rem;margin-bottom:12px}
 .vow{border-top:1px solid var(--band-line);padding-block:14px}
 .vow b{display:block}
 .vow span{color:var(--band-soft);font-size:.95rem}
-.signers{display:grid;grid-template-columns:repeat(11,1fr);gap:6px;margin-top:22px;max-width:360px}
+.signers{display:grid;grid-template-columns:repeat(11,1fr);gap:6px;max-width:360px}
 .signers i{aspect-ratio:1;border:1px solid var(--band-line);border-radius:3px}
 .signers i.on{background:var(--seal);border-color:var(--seal)}
-.decl .small{font-size:.85rem;color:var(--band-soft);margin-top:10px}
+.decl .small{font-size:.86rem;color:var(--band-soft);margin-top:10px;max-width:34em}
+
+/* roadmap */
+.road{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:0;border-top:2px solid var(--ink)}
+.road li{padding:18px 18px 18px 0;display:flex;flex-direction:column;gap:6px;position:relative}
+.road li::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.road li.key::before{background:var(--seal);border-color:var(--seal)}
+.road time{font:700 .95rem var(--f-latin);font-variant-numeric:tabular-nums;padding-top:6px}
+.road span{font-size:.93rem;color:var(--ink-soft)}
+.road li.key time{color:var(--seal)}
 
 /* contact */
 .contact{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-end}
@@ -159,7 +216,6 @@ input,select{min-height:48px;padding:0 16px;border:1px solid var(--line);border-
 button.submit{min-height:48px;padding:0 26px;border:0;border-radius:999px;background:var(--ink);color:var(--paper);font:700 1rem var(--f-body);cursor:pointer}
 .msg{font-size:.92rem;color:var(--seal);min-height:1.5em}
 .contact-r{flex:1 1 260px;display:flex;flex-direction:column;gap:6px;font-size:.95rem}
-.contact-r .muted{color:var(--ink-soft)}
 
 footer{border-top:1px solid var(--ink)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;padding-block:32px;font-size:.88rem;color:var(--ink-soft)}
@@ -174,10 +230,11 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
       <b>SPACE 3133</b>
     </a>
     <nav class="menu" aria-label="주 메뉴">
-      <a class="m-hide" href="#why" data-en="Our Name">3133 이야기</a>
-      <a href="#locations" data-en="Locations">지점</a>
+      <a class="m-hide" href="#name" data-en="Our Name">3133 이야기</a>
+      <a href="#floors" data-en="Floors">층별 안내</a>
       <a href="#programs" data-en="Programs">프로그램</a>
-      <a class="m-hide" href="#declaration" data-en="Declaration">AI 독립선언</a>
+      <a class="m-hide" href="#membership" data-en="Membership">멤버십</a>
+      <a class="m-hide" href="#declaration" data-en="Declaration">AI 선언</a>
       <div class="lang" role="group" aria-label="언어 선택">
         <button type="button" id="lang-ko" aria-pressed="true">KO</button>
         <button type="button" id="lang-en" aria-pressed="false">EN</button>
@@ -190,16 +247,16 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
   <section class="hero">
     <div class="wrap">
       <div class="hero-copy">
-        <div class="eyebrow">Insadong, Seoul · Since 1919 · AI × Tradition</div>
+        <div class="eyebrow">Insadong, Seoul · Since 1919 · Tradition × AI</div>
         <h1 data-en="On a street of tradition,<br>people and technology <em>coexist</em>">전통의 거리에서,<br>사람과 기술이 <em>공존</em>한다</h1>
-        <p class="lead" data-en="Insadong is the street where 33 people read the Declaration of Independence on March 1, 1919. SPACE 3133 records Korean food, clothing and living with AI and robots, and teaches anyone to use technology with their own hands.">1919년 3월 1일, 서른세 사람이 선언서를 읽은 인사동. 스페이스 3133은 그 거리에서 우리의 의·식·주를 AI와 로봇으로 기록하고, 누구나 기술을 직접 다루는 법을 배우는 곳입니다.</p>
+        <p class="lead" data-en="Insadong is the street where 33 people read the Declaration of Independence on March 1, 1919. On the same street, SPACE 3133 declares a new era in which people and technology live in harmony. What we build in the underground bunker rises to the floors above, where you can taste, ask, make and record a Korea where tradition and technology meet.">1919년 3월 1일, 서른세 사람이 선언서를 읽은 인사동. 스페이스 3133은 같은 거리에서 “AI 시대, 사람과 기술이 조화롭게 공존하는 시대”를 다시 선언합니다. 지하 벙커에서 만든 기술이 지상의 전통 경험 위로 올라가, 누구나 마시고, 묻고, 만들고, 기록하는 건물입니다.</p>
         <div class="actions">
-          <a class="btn btn-seal" href="https://insa.space3133.com" data-en="Visit Insadong →">인사동점 둘러보기 →</a>
+          <a class="btn btn-seal" href="#floors" data-en="Explore the building ↓">건물 둘러보기 ↓</a>
           <a class="btn btn-line" href="#programs" data-en="AI classes start Dec 1">AI 교육 12월 1일 개강</a>
         </div>
         <div class="meta">
           <span data-en="5 Insadong 10-gil, Jongno-gu, Seoul">서울 종로구 인사동10길 5</span>
-          <span data-en="Opening November 2026">2026년 11월 오픈</span>
+          <span data-en="Soft opening mid-November 2026">2026년 11월 중순 소프트 오픈</span>
         </div>
       </div>
       <div class="hero-seal">
@@ -208,138 +265,229 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
     </div>
   </section>
 
-  <section class="block" id="why">
+  <section class="block" id="coexist">
     <div class="wrap">
       <div class="head">
+        <div class="eyebrow">Why Insadong</div>
+        <h2 data-en="Tradition, kept alive. Technology, made human.">전통은 살아 있게, 기술은 사람 곁에</h2>
+        <p data-en="Today Insadong shows visitors the Korea of the past. But people come to Korea for tradition and for K-content and technology. At SPACE 3133 both reasons meet in one building.">지금의 인사동은 외국인에게 “과거의 한국”을 보여주는 거리입니다. 그런데 사람들이 한국에 오는 이유는 전통만이 아니라 K-콘텐츠와 기술이기도 합니다. 스페이스 3133은 이 두 이유가 한 건물에서 만나는 곳입니다.</p>
+      </div>
+      <div class="three">
+        <article>
+          <h3 data-en="Tradition that lives, not one under glass">전통을 박제하지 않고 살려둔다</h3>
+          <p data-en="Traditional tea, traditional liquor, saju and the craft of artisans meet AI and robots, and work here and now.">전통차·전통주·사주·장인의 손기술이 AI와 로봇을 만나 지금 여기서 작동합니다.</p>
+        </article>
+        <article>
+          <h3 data-en="A place to try, not just to look">보는 곳이 아니라 해보는 곳</h3>
+          <p data-en="Visitors drink, ask, make and take photos themselves. Nobody here is only a spectator.">직접 마시고, 묻고, 만들고, 사진을 남깁니다. 구경만 하는 사람은 없습니다.</p>
+        </article>
+        <article>
+          <h3 data-en="The building becomes the story">건물이 이야기가 된다</h3>
+          <p data-en="“The AI bunker on the street of March 1st.” One sentence turns a building into a destination on Insadong.">“3·1 거리의 AI 벙커.” 이 한 문장이 건물을 인사동의 새 목적지로 만듭니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block name-sec" id="name">
+    <div class="wrap name-grid">
+      <div class="name-intro">
         <div class="eyebrow">Why 3133</div>
-        <h2 data-en="Our name is our promise">이름이 곧 약속입니다</h2>
+        <div class="big">3·1 + 33</div>
+        <p class="muted" data-en="3·1 is March 1, 1919. 33 is the number of people who signed the Declaration of Independence. The tavern where it was read, Taehwagwan, stood on this very street.">3·1은 1919년 3월 1일, 33은 독립선언서에 이름을 올린 서명인 33인입니다. 선언서가 낭독된 태화관이 바로 이 거리에 있었습니다.</p>
+        <blockquote data-en="“Build it below, before you show it.”">“드러내기 전에, 아래에서 만든다.”</blockquote>
+        <p class="note" data-en="The declaration was read above, at Taehwagwan. It was prepared below, printed overnight at Boseongsa.">선언은 위(태화관)에서 하고, 준비는 아래(보성사)에서 했습니다.</p>
       </div>
-      <div class="why">
-        <article>
-          <div class="num">3·1</div>
-          <h3 data-en="The day of declaration">선언의 날</h3>
-          <p data-en="March 1, 1919. We carry the day people declared the right to think and decide for themselves.">1919년 3월 1일. 스스로 생각하고 정할 권리를 선언한 날을 이름에 새겼습니다.</p>
-        </article>
-        <article>
-          <div class="num">33</div>
-          <h3 data-en="Thirty-three signers">서명인 33인</h3>
-          <p data-en="Like the 33 of 1919, we are gathering 33 people to sign the AI Declaration here on March 1, 2027.">그날의 33인처럼, 2027년 3월 1일 이곳에서 AI 독립선언에 이름을 올릴 33인을 모읍니다.</p>
-        </article>
-        <article>
-          <div class="num">B1→RF</div>
-          <h3 data-en="From the bunker to the rooftop">벙커에서 루프탑까지</h3>
-          <p data-en="We build underground and you experience it above. Only what works climbs the stairs.">벙커에서 만들고 지상에서 경험합니다. 작동하는 것만 계단을 올라갑니다.</p>
-        </article>
-      </div>
+      <ul class="symbols">
+        <li><span class="k">3·1<small data-en="March 1, 1919">1919년 3월 1일</small></span><span data-en="Every March 1 is our Declaration Day and Bunker Demo Day. The first is March 1, 2027.">매년 3월 1일은 선언일이자 벙커 데모데이입니다. 첫 회는 2027년 3월 1일.</span></li>
+        <li><span class="k" data-en="33 signers">서명인 33인<small data-en="The 1919 signers">1919년의 서명인</small></span><span data-en="33 core investors and contributors who are essential to the project, selected rather than sold.">사업에 꼭 필요한 핵심 투자자와 공헌자 33인. 판매하지 않고 선정합니다.</span></li>
+        <li><span class="k" data-en="Taehwagwan">태화관<small data-en="Where it was read">선언을 낭독한 곳</small></span><span data-en="The floors above ground: 2F, 3F and the rooftop, where people experience it.">지상 층 — 2층·3층·루프탑. 경험하고 함께 나누는 곳.</span></li>
+        <li><span class="k" data-en="Boseongsa">보성사<small data-en="Where it was printed">선언서를 찍어 낸 곳</small></span><span data-en="The underground AI Bunker 3133, where we quietly build and test.">지하 AI 벙커 3133 — 조용히 만들고 실험하는 곳.</span></li>
+        <li><span class="k" data-en="Lots 31 · 33">31·33번지<small data-en="Gwanhun-dong">관훈동</small></span><span data-en="The building stands across two lots, Gwanhun-dong 31 and 33. 3133 is in the address too.">건물이 걸쳐 선 두 필지, 관훈동 31·33번지. 지번에도 3133이 있습니다.</span></li>
+      </ul>
     </div>
   </section>
 
-  <section class="block floors-sec" id="locations">
+  <section class="block" id="floors">
     <div class="wrap">
       <div class="head">
-        <div class="eyebrow">Locations</div>
-        <h2 data-en="It starts with one street, one building">한 거리, 한 건물에서 시작합니다</h2>
+        <div class="eyebrow">The Building</div>
+        <h2 data-en="Read the building from the bottom up">건물은 아래에서 위로 읽힙니다</h2>
+        <p data-en="The bunker builds the technology, and the floors above serve it on top of a traditional experience.">벙커가 기술을 만들고, 지상 층은 그 기술을 전통 경험 위에 얹어 손님과 나눕니다.</p>
       </div>
-      <div class="loc">
-        <article class="loc-card">
-          <div class="loc-top"><span class="tag">OPEN 2026.11</span><span class="url">insa.space3133.com</span></div>
-          <h3 data-en="Insadong">인사동점</h3>
-          <ul class="floors">
-            <li><span class="fl">ROOF</span><span><span class="nm" data-en="Rooftop">루프탑</span><span class="ds" data-en="Opens spring 2027">2027년 봄 공개</span></span></li>
-            <li><span class="fl">3F</span><span><span class="nm" data-en="The Floor That Reads You">나를 읽어주는 층</span><span class="ds" data-en="AI saju, compatibility &amp; face reading, AI personal color, photo booth">AI 사주·궁합·관상, AI 퍼스널컬러, 포토부스</span></span></li>
-            <li><span class="fl">2F</span><span><span class="nm" data-en="Tradition Studio">전통 체험 스튜디오</span><span class="ds" data-en="Tea ceremony and traditional liquor classes">다도·전통주 클래스</span></span></li>
-            <li><span class="fl">B1</span><span><span class="nm">AI 벙커 3133</span><span class="ds" data-en="AI education, robot lab, community">AI 교육·로봇 개발·커뮤니티</span></span></li>
-          </ul>
-          <a class="btn btn-ink" href="https://insa.space3133.com" style="align-self:flex-start" data-en="Go to Insadong →">인사동점 바로가기 →</a>
-        </article>
-        <article class="loc-card soon">
-          <div class="loc-top"><span class="tag jjok">COMING SOON</span><span class="url">[지점].space3133.com</span></div>
-          <h3 data-en="Next location">다음 지점</h3>
-          <p style="color:var(--ink-soft)" data-en="We are preparing the next street. Leave your email below to hear first.">다음 거리를 준비하고 있습니다. 아래에 이메일을 남기시면 가장 먼저 알려드립니다.</p>
-          <a class="btn btn-line" href="#contact" style="align-self:flex-start" data-en="Get opening news">오픈 소식 받기</a>
-        </article>
+      <div class="building">
+        <ol class="floors" reversed>
+          <li class="floor"><span class="fl">ROOF</span><div><h3><span data-en="Pavilion">정자</span> <small>ROOFTOP</small></h3><p data-en="A place to rest and gather under the Insadong sky. A free photo spot this winter, with evening traditional liquor from April 2027.">인사동 하늘 아래 쉬고 모이는 곳. 겨울엔 무료 포토스팟, 2027년 4월부터 야간 전통주.</p></div></li>
+          <li class="floor"><span class="fl">3F</span><div><h3><span data-en="Tasting Room">테이스팅룸</span> <small>TASTING ROOM</small></h3><p data-en="Reservation-based food and drink tastings, plus private hire.">예약제 식음료 테이스팅과 공간 대관.</p><div class="chips"><span class="chip" data-en="Reservations">예약제</span><span class="chip" data-en="Private hire">대관</span></div></div></li>
+          <li class="floor"><span class="fl">2F</span><div><h3><span data-en="Lounge">라운지</span> <small>LOUNGE</small></h3><p data-en="Drinks by day and night, a place to rest and take photos. Available for private hire.">주간·야간 음료, 쉬고 사진 남기는 곳. 공간 대관 가능.</p><div class="chips"><span class="chip" data-en="Day &amp; night">주간·야간</span><span class="chip" data-en="Private hire">대관</span></div></div></li>
+          <li class="floor out"><span class="fl">1F</span><div><h3><span data-en="Street-front shop">입점 상점</span> <small>DALDAL</small></h3><p data-en="An independent shop at the entrance, facing the street.">거리와 맞닿은 입구의 입점 상점(달달). 스페이스 3133과 별도로 운영됩니다.</p></div></li>
+          <li class="floor bunker"><span class="fl">B1</span><div><h3>AI 벙커 3133 <small>AI BUNKER</small></h3><p data-en="Where we build and test. AI education, membership and robot development. The bunker is not rented out.">만들고 실험하는 곳 — 이 시대의 보성사. AI 교육 사다리, 멤버십, 로봇 개발. 벙커는 대관하지 않습니다.</p><div class="chips"><span class="chip" data-en="AI education">AI 교육</span><span class="chip" data-en="Membership">멤버십</span><span class="chip" data-en="Robot lab">로봇 개발</span></div></div></li>
+        </ol>
+        <div class="legend">
+          <div><b data-en="Above ground = Taehwagwan">지상 = 태화관</b><span data-en="Where visitors experience, taste and gather.">손님이 경험하고, 맛보고, 모이는 곳.</span></div>
+          <div class="up"><b data-en="Only what works goes up">작동하는 것만 올라간다</b><span data-en="Demos over slides. When a robot built in the bunker works upstairs, that is our declaration.">슬라이드보다 데모. 벙커에서 만든 로봇이 지상에서 일할 때가 선언입니다.</span></div>
+          <div><b data-en="Underground = Boseongsa">지하 = 보성사</b><span data-en="Where unfinished work and failure are allowed.">미완성과 실패가 허락되는 실험실.</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="block" id="programs">
+  <section class="block" id="programs" style="padding-top:0">
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Programs</div>
-        <h2 data-en="Learn, experience, and build together">배우고, 체험하고, 함께 만듭니다</h2>
+        <h2 data-en="Learn, experience, and build together">배우고, 경험하고, 함께 만듭니다</h2>
       </div>
       <article class="ladder">
-        <div class="ladder-copy">
-          <div class="k" data-en="B1 · AI BUNKER 3133 · ALL COURSES START DEC 1, 2026">B1 · AI 벙커 3133 · 2026.12.01 전 과정 개강</div>
-          <h3 data-en="The AI Learning Ladder">AI 교육 사다리</h3>
-          <p data-en="From learner to practitioner. Weeknight and weekend courses for working professionals and business owners.">배우는 사람에서 일하는 사람으로. 평일 저녁과 주말, 재직자와 사장님을 위한 과정입니다.</p>
-          <ol class="steps">
-            <li data-en="One-day">원데이 체험</li><li class="arr" aria-hidden="true">→</li>
-            <li data-en="L1 Basics">L1 기초반</li><li class="arr" aria-hidden="true">→</li>
-            <li>L2 AI Builder · Physical AI</li><li class="arr" aria-hidden="true">→</li>
-            <li data-en="L3 AI PM · AX Consultant">L3 AI PM · AX 컨설턴트</li>
-          </ol>
+        <div class="ladder-top">
+          <div>
+            <div class="k" data-en="B1 · AI BUNKER 3133 · ALL COURSES START DEC 1, 2026">B1 · AI 벙커 3133 · 2026.12.01 전 과정 동시 개강</div>
+            <h3 data-en="The AI Learning Ladder">AI 교육 사다리</h3>
+            <p data-en="A career ladder from learner to practitioner, for working professionals and business owners on weeknights and weekends.">배우는 사람에서 일하는 사람으로 올라가는 직업 사다리. 평일 저녁과 주말에 배우는 재직자와 사장님을 위한 과정입니다.</p>
+          </div>
+          <a class="btn" href="#contact" data-en="Get course info →">과정 안내 받기 →</a>
         </div>
-        <a class="btn" href="https://insa.space3133.com/bunker" data-en="See courses &amp; apply →">과정 보고 신청하기 →</a>
+        <ol class="rungs">
+          <li><span class="lv" data-en="ENTRY">입구</span><b data-en="One-day AI experience">원데이 AI 체험</b><span data-en="3 hours · up to 20">3시간 · 정원 20명</span></li>
+          <li><span class="lv">L1</span><b data-en="Basics: first work with AI">기초반 — AI와 처음 일해 보기</b><span data-en="4 weeks · weekly 3h">4주 · 주 1회 3시간</span></li>
+          <li><span class="lv">L2</span><b data-en="AI Builder: automation, agents, vibe-coded web apps">AI Builder — 업무자동화·에이전트·바이브코딩 웹앱</b><span data-en="6 weeks · twice weekly 3h">6주 · 주 2회 3시간</span></li>
+          <li><span class="lv">L3</span><b data-en="AI PM: planning, PRDs, evaluation, cost and security">AI PM — 제품 기획·PRD·평가·비용·보안</b><span data-en="8 weeks · weekly 4h">8주 · 주 1회 4시간</span></li>
+          <li><span class="lv">L3</span><b data-en="AX Consultant: hands-on SME diagnosis">AX 컨설턴트 — 중소기업 진단 실습</b><span data-en="8 weeks · weekly 4h">8주 · 주 1회 4시간</span></li>
+        </ol>
       </article>
-      <div class="progs">
-        <article class="prog">
-          <div class="k">3F · EXPERIENCE</div>
-          <h3 data-en="AI Saju &amp; Face Reading">AI 사주·궁합·관상</h3>
-          <p data-en="A cultural experience explained in Korean, English, Chinese and Japanese. Take your result card home.">한국어·영어·중국어·일본어로 풀어주는 문화 체험. 결과 카드를 가져가세요.</p>
-        </article>
-        <article class="prog">
-          <div class="k">2F · CLASS</div>
-          <h3 data-en="Tea &amp; Traditional Liquor">다도·전통주 클래스</h3>
-          <p data-en="Small reservation-only classes. Korean food culture through tea and makgeolli.">예약제 소규모 클래스. 차와 술로 만나는 우리 식(食)의 이야기.</p>
-        </article>
-        <article class="prog">
+      <div class="cards">
+        <article class="card">
           <div class="k">B2B · TEAM</div>
-          <h3 data-en="Corporate Team Programs">기업 팀빌딩·위탁 교육</h3>
-          <p data-en="A one-day program combining an AX workshop, tea ceremony and AI saju, plus in-house AI courses.">AX 워크숍, 다도, AI 사주를 묶은 하루 프로그램과 임직원 정규과정.</p>
+          <h3 data-en="Corporate team-building package">기업 팀빌딩 패키지</h3>
+          <p data-en="An AX workshop in the bunker, then the 2F lounge and 3F tasting room. Learning and tradition in one day.">벙커 AX 워크숍 + 2층 라운지 + 3층 테이스팅룸. 배움과 전통을 하루에 묶었습니다.</p>
+        </article>
+        <article class="card">
+          <div class="k">B2B · EDU</div>
+          <h3 data-en="In-house AI courses">기업 위탁 교육</h3>
+          <p data-en="AX courses for your team, designed with AX-Consulting's methodology.">AX-Consulting 방법론으로 설계한 임직원 AI 전환 과정.</p>
+        </article>
+        <article class="card">
+          <div class="k">2F · 3F · VENUE</div>
+          <h3 data-en="Private hire">공간 대관</h3>
+          <p data-en="The 2F lounge and 3F tasting room, in 3-hour blocks, for launches, meetups and events.">2층 라운지·3층 테이스팅룸을 3시간 단위로. 발표회, 모임, 행사에.</p>
+        </article>
+        <article class="card">
+          <div class="k">PARTNERS</div>
+          <h3 data-en="Robot &amp; AI showcase">로봇·AI 기업 실증</h3>
+          <p data-en="A real site where visitors from around the world meet your technology. Sponsorship and demos welcome.">외국인 손님이 기술을 직접 만나는 실증 현장. 장비·기술 협찬과 시연을 환영합니다.</p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section class="block robots-sec" id="robots">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Robot Lineup</div>
+        <h2 data-en="Only what works goes up">작동하는 것만 올라간다</h2>
+        <p data-en="Each robot is first demonstrated in the bunker. Only when it works does it climb the stairs.">모든 로봇은 벙커에서 먼저 시연합니다. 작동해야 계단을 올라갑니다.</p>
+      </div>
+      <div class="robots">
+        <article class="robot">
+          <div class="no"><b>No.1</b><span class="tag" data-en="IN DEVELOPMENT">개발 중</span></div>
+          <h3 data-en="Saju, compatibility &amp; face-reading robot">사주·궁합·관상 로봇</h3>
+          <p data-en="Korean fortune culture, explained by AI. Demonstrated first in the bunker; its spot upstairs is being decided.">AI가 풀어주는 한국의 사주 문화. 벙커에서 먼저 시연하고 지상 설치 위치를 정합니다.</p>
+          <ul class="steps">
+            <li><time>2026.11</time><span data-en="v0 kiosk">v0 키오스크</span></li>
+            <li><time>2026.12–27.1</time><span data-en="v1 desktop robot">v1 데스크톱 로봇</span></li>
+            <li><time>2027.03.01</time><span data-en="v2 calligraphy robot arm">v2 붓글씨 로봇팔</span></li>
+          </ul>
+          <p class="note" data-en="For entertainment. We do not store original face images and make no health claims.">엔터테인먼트로 안내합니다. 얼굴 원본은 저장하지 않으며 건강 효능 표현은 쓰지 않습니다.</p>
+        </article>
+        <article class="robot">
+          <div class="no"><b>No.2</b><span class="tag jjok" data-en="FIRST HALF 2027">2027 상반기</span></div>
+          <h3 data-en="Barista robot">바리스타 로봇</h3>
+          <p data-en="A commercial collaborative robot with our own software, serving coffee in the bunker café.">상용 협동로봇에 자체 소프트웨어를 얹어 벙커 카페에서 일합니다.</p>
+        </article>
+        <article class="robot">
+          <div class="no"><b>No.3</b><span class="tag ghost" data-en="PROPOSAL">제안 단계</span></div>
+          <h3 data-en="Ice-cream robot">아이스크림 로봇</h3>
+          <p data-en="Reusing the No.2 robot-arm platform, proposed for the 1F shop.">2호기 로봇팔 플랫폼을 재사용해 1층 상점에 제안하고 있습니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="membership">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">AI Bunker Membership</div>
+        <h2 data-en="Everyone is a signer">모두가 서명인이다</h2>
+        <p data-en="There are no ranks in the bunker. Developers, artisans, business owners and students share one workbench. The higher the tier, the bigger the benefits on drinks, events, education and space.">벙커에는 직급이 없습니다. 개발자·장인·사장님·학생이 같은 작업대에서 배우며 만듭니다. 등급이 오를수록 음료·행사·교육·장소 혜택이 커집니다.</p>
+      </div>
+      <div class="tiers">
+        <article class="tier"><span class="lv">COMMUNITY</span><h3 data-en="Community">커뮤니티</h3><p class="who" data-en="Anyone from the AI Ajit community. Free.">AI 아지트 누구나 · 무료</p><ul><li data-en="Monthly open seminar">월 1회 오픈 세미나</li><li data-en="Early event notices">행사 우선 안내</li></ul></article>
+        <article class="tier"><span class="lv">BUNKER</span><h3 data-en="Bunker">벙커</h3><p class="who" data-en="People who come to learn regularly">정기적으로 배우러 오는 사람</p><ul><li data-en="Free seating in the lounge">라운지 자유 좌석</li><li data-en="Drink &amp; event discounts">음료·행사 할인</li></ul></article>
+        <article class="tier"><span class="lv">BUILDER</span><h3 data-en="Builder">빌더</h3><p class="who" data-en="Graduates who make things">수료생, 무언가 만드는 사람</p><ul><li data-en="Workzone &amp; equipment booking">작업존·장비 예약</li><li data-en="Study groups">스터디</li></ul></article>
+        <article class="tier"><span class="lv">PRO</span><h3 data-en="Pro">프로</h3><p class="who" data-en="People who come and go and use the equipment">상시 출입하며 장비를 쓰는 사람</p><ul><li data-en="Always-on entry code">출입코드 상시 출입</li><li data-en="Personal locker">사물함</li></ul></article>
+        <article class="tier top"><span class="lv">33 SIGNERS</span><h3 data-en="The 33 Signers">서명인 33인</h3><p class="who" data-en="Core investors and contributors, by selection">핵심 투자자·공헌자 · 선정제</p><ul><li data-en="VIP invitations">각종 행사 VIP 초대</li><li data-en="Sign the AI Declaration each March 1">매년 3월 1일 AI 선언서 서명</li></ul></article>
+      </div>
+      <p class="note" style="margin-top:16px" data-en="Fees are set during the soft-opening period. Community tier is always free.">회비는 소프트 오픈 기간에 확정합니다. 커뮤니티 등급은 무료입니다.</p>
     </div>
   </section>
 
   <section class="decl" id="declaration">
     <div class="wrap">
       <div class="decl-main">
-        <div class="eyebrow">AI Declaration of Independence</div>
-        <blockquote data-en="We hereby declare that in the age of thinking and moving machines, people are the masters, and every ordinary person is sovereign over technology.">우리는 이에, 생각하는 기계와 움직이는 기계의 시대에 사람이 주인임과, 평범한 사람 누구나 기술의 자주민(自主民)임을 선언하노라.</blockquote>
-        <cite data-en="SPACE 3133 AI Declaration · to be read on March 1, 2027 (Dangi 4360)">스페이스 3133 AI 독립선언서 · 단기 4360년(2027년) 3월 1일 낭독 예정</cite>
+        <div class="eyebrow">The AI Declaration</div>
+        <h2 data-en="A declaration for the AI era:<br>people and technology in harmony">AI 시대,<br>사람과 기술이 조화롭게 공존하는 시대 선언</h2>
+        <blockquote data-en="What we want to be free of is not machines but dependence. Anyone can use AI, anyone can build a robot. Machines lighten people's work without taking people's place, and the wisdom of human hands is recorded and handed to the next generation.">우리가 벗어나려는 것은 기계가 아니라 종속이다. 누구나 AI를 다루고 누구나 로봇을 만들 수 있다. 기계는 사람의 수고를 덜되 사람의 자리를 빼앗지 않으며, 장인의 손끝에 쌓인 지혜는 기계에 기록되어 다음 세대로 이어진다.</blockquote>
+        <cite data-en="SPACE 3133 AI Declaration · first reading March 1, 2027 (Dangi 4360)">스페이스 3133 AI 선언서 · 단기 4360년(2027년) 3월 1일 첫 낭독</cite>
         <div>
           <div class="signers" id="signers" aria-hidden="true"></div>
-          <p class="small" data-en="33 seats for signers. Join the waiting list.">서명인 33석 · 대기 명단을 받고 있습니다.</p>
+          <p class="small" data-en="33 seats, filled by selection with core investors and contributors who are essential to the project.">서명인 33석 · 사업에 꼭 필요한 핵심 투자자와 공헌자를 선정합니다.</p>
         </div>
       </div>
       <div class="vows">
-        <h3 data-en="Three Pledges">공약 3장</h3>
-        <div class="vow"><b data-en="For people">하나, 사람을 위하여</b><span data-en="Technology is never used to replace or exclude people.">기술은 사람을 대체·배제하는 데 쓰지 않는다.</span></div>
-        <div class="vow"><b data-en="To the last person">둘, 마지막 한 사람까지</b><span data-en="What we learn, we teach. What we build, we share.">배운 것은 가르치고, 만든 것은 공개한다.</span></div>
-        <div class="vow"><b data-en="Openly and rightly">셋, 밝고 바르게</b><span data-en="People explain and take responsibility for what machines do.">기계가 한 일은 사람이 설명하고 책임진다.</span></div>
-        <a class="btn btn-seal" href="#contact" style="align-self:flex-start;margin-top:20px" data-en="Join the signer waitlist">서명인 대기 명단 등록</a>
+        <h3 data-en="Three Pledges · signed when joining">공약 3장 · 입회 시 서명</h3>
+        <div class="vow"><b data-en="1. For people">하나, 사람을 위하여</b><span data-en="Technology serves human dignity and work, and is never used to replace or exclude people.">기술은 사람의 존엄과 일을 위한 것이며, 사람을 대체·배제하는 데 쓰지 않는다.</span></div>
+        <div class="vow"><b data-en="2. To the last person">둘, 마지막 한 사람까지</b><span data-en="What we learn, we teach. What we build, we share.">배운 것은 가르치고, 만든 것은 공개한다.</span></div>
+        <div class="vow"><b data-en="3. Clear and right">셋, 맑고 바르게</b><span data-en="Every experiment runs within safety and transparency. People explain and take responsibility for what machines do.">모든 실험은 안전과 투명성 안에서, 기계가 한 일은 사람이 설명하고 책임진다.</span></div>
+        <a class="btn btn-seal" href="#contact" style="align-self:flex-start;margin-top:20px" data-en="Talk to us about joining">참여 문의하기</a>
       </div>
     </div>
   </section>
 
-  <section class="block" id="contact">
+  <section class="block" id="roadmap">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Roadmap</div>
+        <h2 data-en="Toward the first Declaration Day">첫 선언일까지</h2>
+      </div>
+      <ol class="road">
+        <li><time data-en="Mid-Nov 2026">2026.11 중순</time><span data-en="Soft opening: 2F lounge, 3F tasting room, bunker one-day class">소프트 오픈 — 2층 라운지, 3층 테이스팅룸, 벙커 원데이</span></li>
+        <li><time data-en="Late Nov 2026">2026.11 말</time><span data-en="Grand opening, private hire launches">그랜드 오픈 — 대관 상품 출시</span></li>
+        <li class="key"><time>2026.12.01</time><span data-en="All bunker courses start">벙커 교육 전 과정 동시 개강</span></li>
+        <li><time>2026.12–2027.01</time><span data-en="Saju robot v1">사주 로봇 v1</span></li>
+        <li class="key"><time>2027.03.01</time><span data-en="First Declaration Day: 33 signers, Bunker Demo Day, saju robot v2">첫 선언일 — 서명인 33인 서명, 벙커 데모데이, 사주 로봇 v2</span></li>
+        <li><time data-en="From Apr 2027">2027.04~</time><span data-en="Rooftop evenings, barista robot">루프탑 야간 운영, 바리스타 로봇</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="contact" style="padding-top:0">
     <div class="wrap contact">
       <div class="contact-l">
         <div class="eyebrow">Stay in touch</div>
-        <h2 data-en="Be the first to hear about openings and new classes">오픈 소식과 개강 안내를 가장 먼저</h2>
+        <h2 data-en="Be the first to hear about opening and new classes">오픈 소식과 개강 안내를 가장 먼저</h2>
         <form id="notify" novalidate>
           <div class="field">
             <label for="email" data-en="Email">이메일</label>
             <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
           </div>
-          <div class="field" style="flex:0 1 220px">
+          <div class="field" style="flex:0 1 230px">
             <label for="interest" data-en="Interested in">관심 분야</label>
             <select id="interest" name="interest">
               <option value="edu" data-en="AI classes (B1)">AI 교육 (B1)</option>
-              <option value="exp" data-en="Experiences (2F·3F)">체험 (2F·3F)</option>
-              <option value="signer" data-en="Signer waitlist">서명인 대기 명단</option>
-              <option value="b2b" data-en="Corporate / partnership">기업·제휴</option>
+              <option value="visit" data-en="Visit (2F · 3F)">방문 (2층·3층)</option>
+              <option value="member" data-en="Membership">멤버십</option>
+              <option value="b2b" data-en="Corporate / private hire">기업·대관</option>
+              <option value="partner" data-en="Robot &amp; AI partnership">로봇·AI 협찬</option>
             </select>
           </div>
           <button class="submit" type="submit" data-en="Notify me">소식 받기</button>
@@ -365,12 +513,10 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
 
 <script>
 (function(){
-  // 서명인 33석 표시 (확정 인원은 아직 0)
-  var SIGNED = 0;
+  var SIGNED = 0; // 확정된 서명인 수
   var box = document.getElementById('signers');
   for (var i = 0; i < 33; i++) { var c = document.createElement('i'); if (i < SIGNED) c.className = 'on'; box.appendChild(c); }
 
-  // KO / EN 전환
   var nodes = document.querySelectorAll('[data-en]');
   nodes.forEach(function(n){ n.dataset.ko = n.innerHTML; });
   function setLang(lang){
@@ -382,9 +528,10 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
   }
   document.getElementById('lang-ko').addEventListener('click', function(){ setLang('ko'); });
   document.getElementById('lang-en').addEventListener('click', function(){ setLang('en'); });
-  try { if (localStorage.getItem('s3133-lang') === 'en') setLang('en'); } catch (e) {}
+  var start = 'ko';
+  try { start = localStorage.getItem('s3133-lang') || ((navigator.language || '').indexOf('ko') === 0 ? 'ko' : 'en'); } catch (e) {}
+  if (start === 'en') setLang('en');
 
-  // 소식 받기 — 실제 배포 시 Tally 등 수집 주소로 연결
   var form = document.getElementById('notify'), msg = document.getElementById('msg');
   form.addEventListener('submit', function(e){
     e.preventDefault();
