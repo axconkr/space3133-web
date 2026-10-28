@@ -7,6 +7,10 @@
 <meta property="og:description" content="전통의 거리에서, 사람과 기술이 공존한다 — 인사동 AI × 전통 공간">
 <meta property="og:url" content="https://www.space3133.com">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23B8321F'/%3E%3Ctext x='32' y='30' font-family='Arial' font-weight='700' font-size='22' fill='%23fff' text-anchor='middle'%3E31%3C/text%3E%3Ctext x='32' y='54' font-family='Arial' font-weight='700' font-size='22' fill='%23fff' text-anchor='middle'%3E33%3C/text%3E%3C/svg%3E">
+<link rel="alternate" hreflang="ko" href="https://www.space3133.com/">
+<link rel="alternate" hreflang="en" href="https://www.space3133.com/">
+<link rel="alternate" hreflang="ja" href="https://www.space3133.com/">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.space3133.com/">
 <title>SPACE 3133</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="전통의 거리에서, 사람과 기술이 공존한다. 1919년 3월 1일 서른세 사람이 선언서를 읽은 인사동에서 AI와 전통이 함께 사는 건물, 스페이스 3133.">
@@ -20,8 +24,8 @@
   --line:#DCD5C6; --seal:#B8321F; --seal-ink:#FFFFFF; --jjok:#24305E; --jjok-soft:#E4E7F1;
   --band:#171717; --band-fg:#F3EFE6; --band-soft:#BDB6A8; --band-line:#3B3833; --band-accent:#E08A72;
   --card:#FFFFFF;
-  --f-display:"Noto Serif KR","Nanum Myeongjo",serif;
-  --f-body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-display:"Noto Serif KR","Nanum Myeongjo","Hiragino Mincho ProN","Songti SC",serif;
+  --f-body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic","Hiragino Sans","PingFang SC","Microsoft YaHei",sans-serif;
   --f-latin:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
@@ -35,6 +39,8 @@
   --band:#0B0B0A; --band-fg:#EEE9DF; --band-soft:#A39C8F; --band-line:#2E2C28; --band-accent:#E08A72;
   --card:#1E1C1A; color-scheme:dark}
 
+html:lang(ja){--f-body:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans JP",sans-serif;--f-display:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif}
+html:lang(zh-Hans){--f-body:"PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",sans-serif;--f-display:"Songti SC","STSong","Noto Serif SC","SimSun",serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -62,6 +68,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand .seal{width:38px;height:38px;padding:4px;border-radius:5px;font-size:14px}
 .brand b{font-family:var(--f-latin);font-size:1.15rem;letter-spacing:.06em}
+.lang{flex-wrap:wrap}
 .menu{display:flex;flex-wrap:wrap;align-items:center;gap:6px 20px;font-size:.95rem}
 .menu a{text-decoration:none;color:var(--ink-soft)}
 .menu a:hover{color:var(--ink)}
@@ -230,14 +237,16 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
       <b>SPACE 3133</b>
     </a>
     <nav class="menu" aria-label="주 메뉴">
-      <a class="m-hide" href="#name" data-en="Our Name">3133 이야기</a>
-      <a href="#floors" data-en="Floors">층별 안내</a>
-      <a href="#programs" data-en="Programs">프로그램</a>
-      <a class="m-hide" href="#membership" data-en="Membership">멤버십</a>
-      <a class="m-hide" href="#declaration" data-en="Declaration">AI 선언</a>
+      <a class="m-hide" href="#name" data-en="Our Name" data-ja="3133について" data-zh="3133的故事">3133 이야기</a>
+      <a href="#floors" data-en="Floors" data-ja="フロア案内" data-zh="楼层导览">층별 안내</a>
+      <a href="#programs" data-en="Programs" data-ja="プログラム" data-zh="项目">프로그램</a>
+      <a class="m-hide" href="#membership" data-en="Membership" data-ja="メンバーシップ" data-zh="会员">멤버십</a>
+      <a class="m-hide" href="#declaration" data-en="Declaration" data-ja="AI宣言" data-zh="AI宣言">AI 선언</a>
       <div class="lang" role="group" aria-label="언어 선택">
         <button type="button" id="lang-ko" aria-pressed="true">KO</button>
         <button type="button" id="lang-en" aria-pressed="false">EN</button>
+        <button type="button" id="lang-ja" aria-pressed="false" lang="ja">日本語</button>
+        <button type="button" id="lang-zh" aria-pressed="false" lang="zh-Hans">中文</button>
       </div>
     </nav>
   </div>
@@ -248,15 +257,15 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
     <div class="wrap">
       <div class="hero-copy">
         <div class="eyebrow">Insadong, Seoul · Since 1919 · Tradition × AI</div>
-        <h1 data-en="On a street of tradition,<br>people and technology <em>coexist</em>">전통의 거리에서,<br>사람과 기술이 <em>공존</em>한다</h1>
-        <p class="lead" data-en="Insadong is the street where 33 people read the Declaration of Independence on March 1, 1919. On the same street, SPACE 3133 declares a new era in which people and technology live in harmony. What we build in the underground bunker rises to the floors above, where you can taste, ask, make and record a Korea where tradition and technology meet.">1919년 3월 1일, 서른세 사람이 선언서를 읽은 인사동. 스페이스 3133은 같은 거리에서 “AI 시대, 사람과 기술이 조화롭게 공존하는 시대”를 다시 선언합니다. 지하 벙커에서 만든 기술이 지상의 전통 경험 위로 올라가, 누구나 마시고, 묻고, 만들고, 기록하는 건물입니다.</p>
+        <h1 data-en="On a street of tradition,<br>people and technology <em>coexist</em>" data-ja="伝統の街で、<br>人と技術が<em>共に生きる</em>" data-zh="在传统的街道上，<br>人与科技<em>共存</em>">전통의 거리에서,<br>사람과 기술이 <em>공존</em>한다</h1>
+        <p class="lead" data-en="Insadong is the street where 33 people read the Declaration of Independence on March 1, 1919. On the same street, SPACE 3133 declares a new era in which people and technology live in harmony. What we build in the underground bunker rises to the floors above, where you can taste, ask, make and record a Korea where tradition and technology meet." data-ja="1919年3月1日、33人が独立宣言書を読み上げた街、仁寺洞。SPACE 3133は同じ街で「AI時代、人と技術が調和して共に生きる時代」をあらためて宣言します。地下のバンカーで生まれた技術が地上の伝統体験の上に上がり、誰もが飲み、尋ね、作り、記録できる建物です。" data-zh="1919年3月1日，33人在仁寺洞宣读了独立宣言书。SPACE 3133在同一条街上，重新宣告“AI时代，人与科技和谐共存的时代”。在地下掩体中诞生的技术，升到地上的传统体验之上，成为人人都能品尝、提问、动手、记录的建筑。">1919년 3월 1일, 서른세 사람이 선언서를 읽은 인사동. 스페이스 3133은 같은 거리에서 “AI 시대, 사람과 기술이 조화롭게 공존하는 시대”를 다시 선언합니다. 지하 벙커에서 만든 기술이 지상의 전통 경험 위로 올라가, 누구나 마시고, 묻고, 만들고, 기록하는 건물입니다.</p>
         <div class="actions">
-          <a class="btn btn-seal" href="#floors" data-en="Explore the building ↓">건물 둘러보기 ↓</a>
-          <a class="btn btn-line" href="#programs" data-en="AI classes start Dec 1">AI 교육 12월 1일 개강</a>
+          <a class="btn btn-seal" href="#floors" data-en="Explore the building ↓" data-ja="建物を見る ↓" data-zh="参观建筑 ↓">건물 둘러보기 ↓</a>
+          <a class="btn btn-line" href="#programs" data-en="AI classes start Dec 1" data-ja="AI講座 12月1日開講" data-zh="AI课程 12月1日开课">AI 교육 12월 1일 개강</a>
         </div>
         <div class="meta">
-          <span data-en="5 Insadong 10-gil, Jongno-gu, Seoul">서울 종로구 인사동10길 5</span>
-          <span data-en="Soft opening mid-November 2026">2026년 11월 중순 소프트 오픈</span>
+          <span data-en="5 Insadong 10-gil, Jongno-gu, Seoul" data-ja="ソウル特別市 鍾路区 仁寺洞10キル5" data-zh="首尔市钟路区仁寺洞10街5号">서울 종로구 인사동10길 5</span>
+          <span data-en="Soft opening mid-November 2026" data-ja="2026年11月中旬 ソフトオープン" data-zh="2026年11月中旬 试营业">2026년 11월 중순 소프트 오픈</span>
         </div>
       </div>
       <div class="hero-seal">
@@ -269,21 +278,21 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Why Insadong</div>
-        <h2 data-en="Tradition, kept alive. Technology, made human.">전통은 살아 있게, 기술은 사람 곁에</h2>
-        <p data-en="Today Insadong shows visitors the Korea of the past. But people come to Korea for tradition and for K-content and technology. At SPACE 3133 both reasons meet in one building.">지금의 인사동은 외국인에게 “과거의 한국”을 보여주는 거리입니다. 그런데 사람들이 한국에 오는 이유는 전통만이 아니라 K-콘텐츠와 기술이기도 합니다. 스페이스 3133은 이 두 이유가 한 건물에서 만나는 곳입니다.</p>
+        <h2 data-en="Tradition, kept alive. Technology, made human." data-ja="伝統は生きたまま、技術は人のそばに" data-zh="让传统鲜活，让科技贴近人">전통은 살아 있게, 기술은 사람 곁에</h2>
+        <p data-en="Today Insadong shows visitors the Korea of the past. But people come to Korea for tradition and for K-content and technology. At SPACE 3133 both reasons meet in one building." data-ja="いまの仁寺洞は、訪れる人に「過去の韓国」を見せる街です。しかし人が韓国を訪れる理由は伝統だけでなく、Kコンテンツと技術でもあります。SPACE 3133は、その二つの理由がひとつの建物で出会う場所です。" data-zh="如今的仁寺洞向游客展示的是“过去的韩国”。但人们来韩国，不只为了传统，也为了K内容与科技。SPACE 3133就是这两个理由在同一栋建筑里相遇的地方。">지금의 인사동은 외국인에게 “과거의 한국”을 보여주는 거리입니다. 그런데 사람들이 한국에 오는 이유는 전통만이 아니라 K-콘텐츠와 기술이기도 합니다. 스페이스 3133은 이 두 이유가 한 건물에서 만나는 곳입니다.</p>
       </div>
       <div class="three">
         <article>
-          <h3 data-en="Tradition that lives, not one under glass">전통을 박제하지 않고 살려둔다</h3>
-          <p data-en="Traditional tea, traditional liquor, saju and the craft of artisans meet AI and robots, and work here and now.">전통차·전통주·사주·장인의 손기술이 AI와 로봇을 만나 지금 여기서 작동합니다.</p>
+          <h3 data-en="Tradition that lives, not one under glass" data-ja="伝統を剥製にせず、生かす" data-zh="不把传统做成标本，而是让它活着">전통을 박제하지 않고 살려둔다</h3>
+          <p data-en="Traditional tea, traditional liquor, saju and the craft of artisans meet AI and robots, and work here and now." data-ja="伝統茶・伝統酒・四柱推命・職人の手仕事がAIとロボットに出会い、いまここで動いています。" data-zh="传统茶、传统酒、四柱命理和匠人的手艺与AI和机器人相遇，此时此地正在运转。">전통차·전통주·사주·장인의 손기술이 AI와 로봇을 만나 지금 여기서 작동합니다.</p>
         </article>
         <article>
-          <h3 data-en="A place to try, not just to look">보는 곳이 아니라 해보는 곳</h3>
-          <p data-en="Visitors drink, ask, make and take photos themselves. Nobody here is only a spectator.">직접 마시고, 묻고, 만들고, 사진을 남깁니다. 구경만 하는 사람은 없습니다.</p>
+          <h3 data-en="A place to try, not just to look" data-ja="見る場所ではなく、やってみる場所" data-zh="不是用来看的地方，而是动手体验的地方">보는 곳이 아니라 해보는 곳</h3>
+          <p data-en="Visitors drink, ask, make and take photos themselves. Nobody here is only a spectator." data-ja="自分で飲み、尋ね、作り、写真を残します。見ているだけの人はいません。" data-zh="亲自品尝、提问、动手、拍照留念。这里没有只看不做的人。">직접 마시고, 묻고, 만들고, 사진을 남깁니다. 구경만 하는 사람은 없습니다.</p>
         </article>
         <article>
-          <h3 data-en="The building becomes the story">건물이 이야기가 된다</h3>
-          <p data-en="“The AI bunker on the street of March 1st.” One sentence turns a building into a destination on Insadong.">“3·1 거리의 AI 벙커.” 이 한 문장이 건물을 인사동의 새 목적지로 만듭니다.</p>
+          <h3 data-en="The building becomes the story" data-ja="建物が物語になる" data-zh="建筑本身就是故事">건물이 이야기가 된다</h3>
+          <p data-en="“The AI bunker on the street of March 1st.” One sentence turns a building into a destination on Insadong." data-ja="「3・1の街のAIバンカー」。この一文が、建物を仁寺洞の新しい目的地にします。" data-zh="“三一街上的AI掩体。”这一句话，让这栋建筑成为仁寺洞的新目的地。">“3·1 거리의 AI 벙커.” 이 한 문장이 건물을 인사동의 새 목적지로 만듭니다.</p>
         </article>
       </div>
     </div>
@@ -294,16 +303,16 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
       <div class="name-intro">
         <div class="eyebrow">Why 3133</div>
         <div class="big">3·1 + 33</div>
-        <p class="muted" data-en="3·1 is March 1, 1919. 33 is the number of people who signed the Declaration of Independence. The tavern where it was read, Taehwagwan, stood on this very street.">3·1은 1919년 3월 1일, 33은 독립선언서에 이름을 올린 서명인 33인입니다. 선언서가 낭독된 태화관이 바로 이 거리에 있었습니다.</p>
-        <blockquote data-en="“Build it below, before you show it.”">“드러내기 전에, 아래에서 만든다.”</blockquote>
-        <p class="note" data-en="The declaration was read above, at Taehwagwan. It was prepared below, printed overnight at Boseongsa.">선언은 위(태화관)에서 하고, 준비는 아래(보성사)에서 했습니다.</p>
+        <p class="muted" data-en="3·1 is March 1, 1919. 33 is the number of people who signed the Declaration of Independence. The tavern where it was read, Taehwagwan, stood on this very street." data-ja="3・1は1919年3月1日、33は独立宣言書に名を連ねた33人。宣言書が読み上げられた泰和館は、まさにこの街にありました。" data-zh="3·1是1919年3月1日，33是在独立宣言书上署名的33人。宣读宣言书的泰和馆就在这条街上。">3·1은 1919년 3월 1일, 33은 독립선언서에 이름을 올린 서명인 33인입니다. 선언서가 낭독된 태화관이 바로 이 거리에 있었습니다.</p>
+        <blockquote data-en="“Build it below, before you show it.”" data-ja="「見せる前に、下でつくる。」" data-zh="“展示之前，先在地下做出来。”">“드러내기 전에, 아래에서 만든다.”</blockquote>
+        <p class="note" data-en="The declaration was read above, at Taehwagwan. It was prepared below, printed overnight at Boseongsa." data-ja="宣言は上（泰和館）で読まれ、準備は下（普成社）で行われました。" data-zh="宣言在上面（泰和馆）宣读，准备工作在下面（普成社）完成。">선언은 위(태화관)에서 하고, 준비는 아래(보성사)에서 했습니다.</p>
       </div>
       <ul class="symbols">
-        <li><span class="k">3·1<small data-en="March 1, 1919">1919년 3월 1일</small></span><span data-en="Every March 1 is our Declaration Day and Bunker Demo Day. The first is March 1, 2027.">매년 3월 1일은 선언일이자 벙커 데모데이입니다. 첫 회는 2027년 3월 1일.</span></li>
-        <li><span class="k" data-en="33 signers">서명인 33인<small data-en="The 1919 signers">1919년의 서명인</small></span><span data-en="33 core investors and contributors who are essential to the project, selected rather than sold.">사업에 꼭 필요한 핵심 투자자와 공헌자 33인. 판매하지 않고 선정합니다.</span></li>
-        <li><span class="k" data-en="Taehwagwan">태화관<small data-en="Where it was read">선언을 낭독한 곳</small></span><span data-en="The floors above ground: 2F, 3F and the rooftop, where people experience it.">지상 층 — 2층·3층·루프탑. 경험하고 함께 나누는 곳.</span></li>
-        <li><span class="k" data-en="Boseongsa">보성사<small data-en="Where it was printed">선언서를 찍어 낸 곳</small></span><span data-en="The underground AI Bunker 3133, where we quietly build and test.">지하 AI 벙커 3133 — 조용히 만들고 실험하는 곳.</span></li>
-        <li><span class="k" data-en="Lots 31 · 33">31·33번지<small data-en="Gwanhun-dong">관훈동</small></span><span data-en="The building stands across two lots, Gwanhun-dong 31 and 33. 3133 is in the address too.">건물이 걸쳐 선 두 필지, 관훈동 31·33번지. 지번에도 3133이 있습니다.</span></li>
+        <li><span class="k">3·1<small data-en="March 1, 1919" data-ja="1919年3月1日" data-zh="1919年3月1日">1919년 3월 1일</small></span><span data-en="Every March 1 is our Declaration Day and Bunker Demo Day. The first is March 1, 2027." data-ja="毎年3月1日は宣言の日であり、バンカーのデモデー。第1回は2027年3月1日です。" data-zh="每年3月1日是宣言日，也是掩体演示日。第一届在2027年3月1日。">매년 3월 1일은 선언일이자 벙커 데모데이입니다. 첫 회는 2027년 3월 1일.</span></li>
+        <li><span class="k" data-en="33 signers" data-ja="署名人33人" data-zh="33位署名人">서명인 33인<small data-en="The 1919 signers" data-ja="1919年の署名人" data-zh="1919年的署名人">1919년의 서명인</small></span><span data-en="33 core investors and contributors who are essential to the project, selected rather than sold." data-ja="事業に欠かせない中核の投資者と貢献者33人。販売ではなく選定で決まります。" data-zh="对事业不可或缺的核心投资人与贡献者33人。不出售，采用遴选制。">사업에 꼭 필요한 핵심 투자자와 공헌자 33인. 판매하지 않고 선정합니다.</span></li>
+        <li><span class="k" data-en="Taehwagwan" data-ja="泰和館" data-zh="泰和馆">태화관<small data-en="Where it was read" data-ja="宣言を読み上げた場所" data-zh="宣读宣言的地方">선언을 낭독한 곳</small></span><span data-en="The floors above ground: 2F, 3F and the rooftop, where people experience it." data-ja="地上フロア：2階・3階・ルーフトップ。体験し、分かち合う場所。" data-zh="地上楼层：2楼、3楼、屋顶。体验与分享的地方。">지상 층 — 2층·3층·루프탑. 경험하고 함께 나누는 곳.</span></li>
+        <li><span class="k" data-en="Boseongsa" data-ja="普成社" data-zh="普成社">보성사<small data-en="Where it was printed" data-ja="宣言書を刷った場所" data-zh="印制宣言书的地方">선언서를 찍어 낸 곳</small></span><span data-en="The underground AI Bunker 3133, where we quietly build and test." data-ja="地下のAIバンカー3133。静かにつくり、試す場所。" data-zh="地下AI掩体3133。安静地制作与实验的地方。">지하 AI 벙커 3133 — 조용히 만들고 실험하는 곳.</span></li>
+        <li><span class="k" data-en="Lots 31 · 33" data-ja="31・33番地" data-zh="31·33号地">31·33번지<small data-en="Gwanhun-dong" data-ja="寛勲洞" data-zh="宽勋洞">관훈동</small></span><span data-en="The building stands across two lots, Gwanhun-dong 31 and 33. 3133 is in the address too." data-ja="建物は寛勲洞31番地と33番地の二つの区画にまたがって建っています。地番にも3133があります。" data-zh="建筑横跨宽勋洞31号和33号两块地。门牌地号里也藏着3133。">건물이 걸쳐 선 두 필지, 관훈동 31·33번지. 지번에도 3133이 있습니다.</span></li>
       </ul>
     </div>
   </section>
@@ -312,21 +321,21 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">The Building</div>
-        <h2 data-en="Read the building from the bottom up">건물은 아래에서 위로 읽힙니다</h2>
-        <p data-en="The bunker builds the technology, and the floors above serve it on top of a traditional experience.">벙커가 기술을 만들고, 지상 층은 그 기술을 전통 경험 위에 얹어 손님과 나눕니다.</p>
+        <h2 data-en="Read the building from the bottom up" data-ja="建物は下から上へ読む" data-zh="这栋建筑从下往上读">건물은 아래에서 위로 읽힙니다</h2>
+        <p data-en="The bunker builds the technology, and the floors above serve it on top of a traditional experience." data-ja="バンカーが技術をつくり、地上フロアがそれを伝統体験の上にのせて届けます。" data-zh="掩体负责创造技术，地上楼层把它放在传统体验之上，与客人分享。">벙커가 기술을 만들고, 지상 층은 그 기술을 전통 경험 위에 얹어 손님과 나눕니다.</p>
       </div>
       <div class="building">
         <ol class="floors" reversed>
-          <li class="floor"><span class="fl">ROOF</span><div><h3><span data-en="Pavilion">정자</span> <small>ROOFTOP</small></h3><p data-en="A place to rest and gather under the Insadong sky. A free photo spot this winter, with evening traditional liquor from April 2027.">인사동 하늘 아래 쉬고 모이는 곳. 겨울엔 무료 포토스팟, 2027년 4월부터 야간 전통주.</p></div></li>
-          <li class="floor"><span class="fl">3F</span><div><h3><span data-en="Tasting Room">테이스팅룸</span> <small>TASTING ROOM</small></h3><p data-en="Reservation-based food and drink tastings, plus private hire.">예약제 식음료 테이스팅과 공간 대관.</p><div class="chips"><span class="chip" data-en="Reservations">예약제</span><span class="chip" data-en="Private hire">대관</span></div></div></li>
-          <li class="floor"><span class="fl">2F</span><div><h3><span data-en="Lounge">라운지</span> <small>LOUNGE</small></h3><p data-en="Drinks by day and night, a place to rest and take photos. Available for private hire.">주간·야간 음료, 쉬고 사진 남기는 곳. 공간 대관 가능.</p><div class="chips"><span class="chip" data-en="Day &amp; night">주간·야간</span><span class="chip" data-en="Private hire">대관</span></div></div></li>
-          <li class="floor out"><span class="fl">1F</span><div><h3><span data-en="Street-front shop">입점 상점</span> <small>DALDAL</small></h3><p data-en="An independent shop at the entrance, facing the street.">거리와 맞닿은 입구의 입점 상점(달달). 스페이스 3133과 별도로 운영됩니다.</p></div></li>
-          <li class="floor bunker"><span class="fl">B1</span><div><h3>AI 벙커 3133 <small>AI BUNKER</small></h3><p data-en="Where we build and test. AI education, membership and robot development. The bunker is not rented out.">만들고 실험하는 곳 — 이 시대의 보성사. AI 교육 사다리, 멤버십, 로봇 개발. 벙커는 대관하지 않습니다.</p><div class="chips"><span class="chip" data-en="AI education">AI 교육</span><span class="chip" data-en="Membership">멤버십</span><span class="chip" data-en="Robot lab">로봇 개발</span></div></div></li>
+          <li class="floor"><span class="fl">ROOF</span><div><h3><span data-en="Pavilion" data-ja="東屋" data-zh="亭子">정자</span> <small>ROOFTOP</small></h3><p data-en="A place to rest and gather under the Insadong sky. A free photo spot this winter, with evening traditional liquor from April 2027." data-ja="仁寺洞の空の下で休み、集まる場所。冬は無料のフォトスポット、2027年4月から夜の伝統酒。" data-zh="在仁寺洞的天空下休息、相聚。冬季为免费拍照点，2027年4月起夜间供应传统酒。">인사동 하늘 아래 쉬고 모이는 곳. 겨울엔 무료 포토스팟, 2027년 4월부터 야간 전통주.</p></div></li>
+          <li class="floor"><span class="fl">3F</span><div><h3><span data-en="Tasting Room" data-ja="テイスティングルーム" data-zh="品鉴室">테이스팅룸</span> <small>TASTING ROOM</small></h3><p data-en="Reservation-based food and drink tastings, plus private hire." data-ja="予約制のフード&amp;ドリンク テイスティングと貸切。" data-zh="预约制餐饮品鉴，可包场租用。">예약제 식음료 테이스팅과 공간 대관.</p><div class="chips"><span class="chip" data-en="Reservations" data-ja="予約制" data-zh="预约制">예약제</span><span class="chip" data-en="Private hire" data-ja="貸切" data-zh="包场">대관</span></div></div></li>
+          <li class="floor"><span class="fl">2F</span><div><h3><span data-en="Lounge" data-ja="ラウンジ" data-zh="休息厅">라운지</span> <small>LOUNGE</small></h3><p data-en="Drinks by day and night, a place to rest and take photos. Available for private hire." data-ja="昼も夜もドリンクを。休んで写真を残す場所。貸切もできます。" data-zh="白天和夜晚都供应饮品，休息拍照的地方。可包场租用。">주간·야간 음료, 쉬고 사진 남기는 곳. 공간 대관 가능.</p><div class="chips"><span class="chip" data-en="Day &amp; night" data-ja="昼・夜" data-zh="日间·夜间">주간·야간</span><span class="chip" data-en="Private hire" data-ja="貸切" data-zh="包场">대관</span></div></div></li>
+          <li class="floor out"><span class="fl">1F</span><div><h3><span data-en="Street-front shop" data-ja="テナント店舗" data-zh="入驻店铺">입점 상점</span> <small>DALDAL</small></h3><p data-en="An independent shop at the entrance, facing the street." data-ja="通りに面した入口のテナント店舗（タルタル）。SPACE 3133とは別に運営されています。" data-zh="临街入口的入驻店铺（DalDal），与SPACE 3133分开经营。">거리와 맞닿은 입구의 입점 상점(달달). 스페이스 3133과 별도로 운영됩니다.</p></div></li>
+          <li class="floor bunker"><span class="fl">B1</span><div><h3>AI 벙커 3133 <small>AI BUNKER</small></h3><p data-en="Where we build and test. AI education, membership and robot development. The bunker is not rented out." data-ja="つくり、試す場所。現代の普成社。AI教育、メンバーシップ、ロボット開発。バンカーは貸切しません。" data-zh="制作与实验的地方，这个时代的普成社。AI教育、会员、机器人开发。掩体不对外出租。">만들고 실험하는 곳 — 이 시대의 보성사. AI 교육 사다리, 멤버십, 로봇 개발. 벙커는 대관하지 않습니다.</p><div class="chips"><span class="chip" data-en="AI education" data-ja="AI教育" data-zh="AI教育">AI 교육</span><span class="chip" data-en="Membership" data-ja="メンバーシップ" data-zh="会员">멤버십</span><span class="chip" data-en="Robot lab" data-ja="ロボット開発" data-zh="机器人开发">로봇 개발</span></div></div></li>
         </ol>
         <div class="legend">
-          <div><b data-en="Above ground = Taehwagwan">지상 = 태화관</b><span data-en="Where visitors experience, taste and gather.">손님이 경험하고, 맛보고, 모이는 곳.</span></div>
-          <div class="up"><b data-en="Only what works goes up">작동하는 것만 올라간다</b><span data-en="Demos over slides. When a robot built in the bunker works upstairs, that is our declaration.">슬라이드보다 데모. 벙커에서 만든 로봇이 지상에서 일할 때가 선언입니다.</span></div>
-          <div><b data-en="Underground = Boseongsa">지하 = 보성사</b><span data-en="Where unfinished work and failure are allowed.">미완성과 실패가 허락되는 실험실.</span></div>
+          <div><b data-en="Above ground = Taehwagwan" data-ja="地上 = 泰和館" data-zh="地上 = 泰和馆">지상 = 태화관</b><span data-en="Where visitors experience, taste and gather." data-ja="訪れた人が体験し、味わい、集まる場所。" data-zh="客人体验、品尝、相聚的地方。">손님이 경험하고, 맛보고, 모이는 곳.</span></div>
+          <div class="up"><b data-en="Only what works goes up" data-ja="動くものだけが上がる" data-zh="只有能运转的才往上走">작동하는 것만 올라간다</b><span data-en="Demos over slides. When a robot built in the bunker works upstairs, that is our declaration." data-ja="スライドよりデモ。バンカーでつくったロボットが地上で働くとき、それが私たちの宣言です。" data-zh="演示胜过幻灯片。当掩体里做出的机器人在地上工作时，那就是我们的宣言。">슬라이드보다 데모. 벙커에서 만든 로봇이 지상에서 일할 때가 선언입니다.</span></div>
+          <div><b data-en="Underground = Boseongsa" data-ja="地下 = 普成社" data-zh="地下 = 普成社">지하 = 보성사</b><span data-en="Where unfinished work and failure are allowed." data-ja="未完成と失敗が許される実験室。" data-zh="允许未完成与失败的实验室。">미완성과 실패가 허락되는 실험실.</span></div>
         </div>
       </div>
     </div>
@@ -336,45 +345,45 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Programs</div>
-        <h2 data-en="Learn, experience, and build together">배우고, 경험하고, 함께 만듭니다</h2>
+        <h2 data-en="Learn, experience, and build together" data-ja="学び、体験し、共につくる" data-zh="学习、体验、共同创造">배우고, 경험하고, 함께 만듭니다</h2>
       </div>
       <article class="ladder">
         <div class="ladder-top">
           <div>
-            <div class="k" data-en="B1 · AI BUNKER 3133 · ALL COURSES START DEC 1, 2026">B1 · AI 벙커 3133 · 2026.12.01 전 과정 동시 개강</div>
-            <h3 data-en="The AI Learning Ladder">AI 교육 사다리</h3>
-            <p data-en="A career ladder from learner to practitioner, for working professionals and business owners on weeknights and weekends.">배우는 사람에서 일하는 사람으로 올라가는 직업 사다리. 평일 저녁과 주말에 배우는 재직자와 사장님을 위한 과정입니다.</p>
+            <div class="k" data-en="B1 · AI BUNKER 3133 · ALL COURSES START DEC 1, 2026" data-ja="B1 · AIバンカー3133 · 2026年12月1日 全コース同時開講" data-zh="B1 · AI掩体3133 · 2026年12月1日 全部课程同时开课">B1 · AI 벙커 3133 · 2026.12.01 전 과정 동시 개강</div>
+            <h3 data-en="The AI Learning Ladder" data-ja="AI学びのはしご" data-zh="AI学习阶梯">AI 교육 사다리</h3>
+            <p data-en="A career ladder from learner to practitioner, for working professionals and business owners on weeknights and weekends." data-ja="学ぶ人から働く人へ上がるキャリアのはしご。平日の夜と週末に学ぶ社会人と経営者のためのコースです。" data-zh="从学习者走向实践者的职业阶梯。面向在工作日晚上和周末学习的上班族与店主。">배우는 사람에서 일하는 사람으로 올라가는 직업 사다리. 평일 저녁과 주말에 배우는 재직자와 사장님을 위한 과정입니다.</p>
           </div>
-          <a class="btn" href="#contact" data-en="Get course info →">과정 안내 받기 →</a>
+          <a class="btn" href="#contact" data-en="Get course info →" data-ja="コース案内を受け取る →" data-zh="获取课程信息 →">과정 안내 받기 →</a>
         </div>
         <ol class="rungs">
-          <li><span class="lv" data-en="ENTRY">입구</span><b data-en="One-day AI experience">원데이 AI 체험</b><span data-en="3 hours · up to 20">3시간 · 정원 20명</span></li>
-          <li><span class="lv">L1</span><b data-en="Basics: first work with AI">기초반 — AI와 처음 일해 보기</b><span data-en="4 weeks · weekly 3h">4주 · 주 1회 3시간</span></li>
-          <li><span class="lv">L2</span><b data-en="AI Builder: automation, agents, vibe-coded web apps">AI Builder — 업무자동화·에이전트·바이브코딩 웹앱</b><span data-en="6 weeks · twice weekly 3h">6주 · 주 2회 3시간</span></li>
-          <li><span class="lv">L3</span><b data-en="AI PM: planning, PRDs, evaluation, cost and security">AI PM — 제품 기획·PRD·평가·비용·보안</b><span data-en="8 weeks · weekly 4h">8주 · 주 1회 4시간</span></li>
-          <li><span class="lv">L3</span><b data-en="AX Consultant: hands-on SME diagnosis">AX 컨설턴트 — 중소기업 진단 실습</b><span data-en="8 weeks · weekly 4h">8주 · 주 1회 4시간</span></li>
+          <li><span class="lv" data-en="ENTRY" data-ja="入門" data-zh="入门">입구</span><b data-en="One-day AI experience" data-ja="ワンデーAI体験" data-zh="一日AI体验">원데이 AI 체험</b><span data-en="3 hours · up to 20" data-ja="3時間 · 定員20名" data-zh="3小时 · 限20人">3시간 · 정원 20명</span></li>
+          <li><span class="lv">L1</span><b data-en="Basics: first work with AI" data-ja="基礎クラス：AIとはじめて働いてみる" data-zh="基础班：第一次和AI一起工作">기초반 — AI와 처음 일해 보기</b><span data-en="4 weeks · weekly 3h" data-ja="4週間 · 週1回3時間" data-zh="4周 · 每周1次3小时">4주 · 주 1회 3시간</span></li>
+          <li><span class="lv">L2</span><b data-en="AI Builder: automation, agents, vibe-coded web apps" data-ja="AI Builder：業務自動化・エージェント・バイブコーディングWebアプリ" data-zh="AI Builder：业务自动化、智能体、氛围编程网页应用">AI Builder — 업무자동화·에이전트·바이브코딩 웹앱</b><span data-en="6 weeks · twice weekly 3h" data-ja="6週間 · 週2回3時間" data-zh="6周 · 每周2次3小时">6주 · 주 2회 3시간</span></li>
+          <li><span class="lv">L3</span><b data-en="AI PM: planning, PRDs, evaluation, cost and security" data-ja="AI PM：製品企画・PRD・評価・コスト・セキュリティ" data-zh="AI PM：产品规划、PRD、评估、成本、安全">AI PM — 제품 기획·PRD·평가·비용·보안</b><span data-en="8 weeks · weekly 4h" data-ja="8週間 · 週1回4時間" data-zh="8周 · 每周1次4小时">8주 · 주 1회 4시간</span></li>
+          <li><span class="lv">L3</span><b data-en="AX Consultant: hands-on SME diagnosis" data-ja="AXコンサルタント：中小企業診断の実習" data-zh="AX顾问：中小企业诊断实训">AX 컨설턴트 — 중소기업 진단 실습</b><span data-en="8 weeks · weekly 4h" data-ja="8週間 · 週1回4時間" data-zh="8周 · 每周1次4小时">8주 · 주 1회 4시간</span></li>
         </ol>
       </article>
       <div class="cards">
         <article class="card">
           <div class="k">B2B · TEAM</div>
-          <h3 data-en="Corporate team-building package">기업 팀빌딩 패키지</h3>
-          <p data-en="An AX workshop in the bunker, then the 2F lounge and 3F tasting room. Learning and tradition in one day.">벙커 AX 워크숍 + 2층 라운지 + 3층 테이스팅룸. 배움과 전통을 하루에 묶었습니다.</p>
+          <h3 data-en="Corporate team-building package" data-ja="企業チームビルディング パッケージ" data-zh="企业团建套餐">기업 팀빌딩 패키지</h3>
+          <p data-en="An AX workshop in the bunker, then the 2F lounge and 3F tasting room. Learning and tradition in one day." data-ja="バンカーでのAXワークショップ＋2階ラウンジ＋3階テイスティングルーム。学びと伝統を一日に。" data-zh="掩体AX工作坊 + 2楼休息厅 + 3楼品鉴室。一天之内兼得学习与传统。">벙커 AX 워크숍 + 2층 라운지 + 3층 테이스팅룸. 배움과 전통을 하루에 묶었습니다.</p>
         </article>
         <article class="card">
           <div class="k">B2B · EDU</div>
-          <h3 data-en="In-house AI courses">기업 위탁 교육</h3>
-          <p data-en="AX courses for your team, designed with AX-Consulting's methodology.">AX-Consulting 방법론으로 설계한 임직원 AI 전환 과정.</p>
+          <h3 data-en="In-house AI courses" data-ja="企業向けAI研修" data-zh="企业定制AI培训">기업 위탁 교육</h3>
+          <p data-en="AX courses for your team, designed with AX-Consulting's methodology." data-ja="AX-Consultingの方法論で設計した、社員のためのAI転換コース。" data-zh="以AX-Consulting方法论设计的员工AI转型课程。">AX-Consulting 방법론으로 설계한 임직원 AI 전환 과정.</p>
         </article>
         <article class="card">
           <div class="k">2F · 3F · VENUE</div>
-          <h3 data-en="Private hire">공간 대관</h3>
-          <p data-en="The 2F lounge and 3F tasting room, in 3-hour blocks, for launches, meetups and events.">2층 라운지·3층 테이스팅룸을 3시간 단위로. 발표회, 모임, 행사에.</p>
+          <h3 data-en="Private hire" data-ja="貸切" data-zh="包场">공간 대관</h3>
+          <p data-en="The 2F lounge and 3F tasting room, in 3-hour blocks, for launches, meetups and events." data-ja="2階ラウンジ・3階テイスティングルームを3時間単位で。発表会、交流会、イベントに。" data-zh="2楼休息厅、3楼品鉴室以3小时为单位租用，适合发布会、聚会和活动。">2층 라운지·3층 테이스팅룸을 3시간 단위로. 발표회, 모임, 행사에.</p>
         </article>
         <article class="card">
           <div class="k">PARTNERS</div>
-          <h3 data-en="Robot &amp; AI showcase">로봇·AI 기업 실증</h3>
-          <p data-en="A real site where visitors from around the world meet your technology. Sponsorship and demos welcome.">외국인 손님이 기술을 직접 만나는 실증 현장. 장비·기술 협찬과 시연을 환영합니다.</p>
+          <h3 data-en="Robot &amp; AI showcase" data-ja="ロボット・AI企業の実証" data-zh="机器人与AI企业实证">로봇·AI 기업 실증</h3>
+          <p data-en="A real site where visitors from around the world meet your technology. Sponsorship and demos welcome." data-ja="世界中から訪れる人があなたの技術に直接触れる実証の場。機材・技術の協賛とデモを歓迎します。" data-zh="来自世界各地的客人亲身体验您技术的实证现场。欢迎设备与技术赞助及演示。">외국인 손님이 기술을 직접 만나는 실증 현장. 장비·기술 협찬과 시연을 환영합니다.</p>
         </article>
       </div>
     </div>
@@ -384,30 +393,30 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Robot Lineup</div>
-        <h2 data-en="Only what works goes up">작동하는 것만 올라간다</h2>
-        <p data-en="Each robot is first demonstrated in the bunker. Only when it works does it climb the stairs.">모든 로봇은 벙커에서 먼저 시연합니다. 작동해야 계단을 올라갑니다.</p>
+        <h2 data-en="Only what works goes up" data-ja="動くものだけが上がる" data-zh="只有能运转的才往上走">작동하는 것만 올라간다</h2>
+        <p data-en="Each robot is first demonstrated in the bunker. Only when it works does it climb the stairs." data-ja="すべてのロボットはまずバンカーでデモを行います。動いてはじめて階段を上ります。" data-zh="每台机器人都先在掩体里演示，能运转了才走上楼梯。">모든 로봇은 벙커에서 먼저 시연합니다. 작동해야 계단을 올라갑니다.</p>
       </div>
       <div class="robots">
         <article class="robot">
-          <div class="no"><b>No.1</b><span class="tag" data-en="IN DEVELOPMENT">개발 중</span></div>
-          <h3 data-en="Saju, compatibility &amp; face-reading robot">사주·궁합·관상 로봇</h3>
-          <p data-en="Korean fortune culture, explained by AI. Demonstrated first in the bunker; its spot upstairs is being decided.">AI가 풀어주는 한국의 사주 문화. 벙커에서 먼저 시연하고 지상 설치 위치를 정합니다.</p>
+          <div class="no"><b>No.1</b><span class="tag" data-en="IN DEVELOPMENT" data-ja="開発中" data-zh="开发中">개발 중</span></div>
+          <h3 data-en="Saju, compatibility &amp; face-reading robot" data-ja="四柱推命・相性・観相ロボット" data-zh="四柱命理·合婚·面相机器人">사주·궁합·관상 로봇</h3>
+          <p data-en="Korean fortune culture, explained by AI. Demonstrated first in the bunker; its spot upstairs is being decided." data-ja="AIが読み解く韓国の四柱推命文化。まずバンカーでデモを行い、地上の設置場所を決めます。" data-zh="由AI解读的韩国四柱命理文化。先在掩体演示，再决定地上的摆放位置。">AI가 풀어주는 한국의 사주 문화. 벙커에서 먼저 시연하고 지상 설치 위치를 정합니다.</p>
           <ul class="steps">
-            <li><time>2026.11</time><span data-en="v0 kiosk">v0 키오스크</span></li>
-            <li><time>2026.12–27.1</time><span data-en="v1 desktop robot">v1 데스크톱 로봇</span></li>
-            <li><time>2027.03.01</time><span data-en="v2 calligraphy robot arm">v2 붓글씨 로봇팔</span></li>
+            <li><time>2026.11</time><span data-en="v0 kiosk" data-ja="v0 キオスク" data-zh="v0 自助终端">v0 키오스크</span></li>
+            <li><time>2026.12–27.1</time><span data-en="v1 desktop robot" data-ja="v1 デスクトップロボット" data-zh="v1 桌面机器人">v1 데스크톱 로봇</span></li>
+            <li><time>2027.03.01</time><span data-en="v2 calligraphy robot arm" data-ja="v2 書道ロボットアーム" data-zh="v2 书法机械臂">v2 붓글씨 로봇팔</span></li>
           </ul>
-          <p class="note" data-en="For entertainment. We do not store original face images and make no health claims.">엔터테인먼트로 안내합니다. 얼굴 원본은 저장하지 않으며 건강 효능 표현은 쓰지 않습니다.</p>
+          <p class="note" data-en="For entertainment. We do not store original face images and make no health claims." data-ja="エンターテインメントとしてご案内します。顔の元画像は保存せず、健康効果の表現は使いません。" data-zh="仅作娱乐用途。不保存面部原始图像，也不做任何健康功效宣传。">엔터테인먼트로 안내합니다. 얼굴 원본은 저장하지 않으며 건강 효능 표현은 쓰지 않습니다.</p>
         </article>
         <article class="robot">
-          <div class="no"><b>No.2</b><span class="tag jjok" data-en="FIRST HALF 2027">2027 상반기</span></div>
-          <h3 data-en="Barista robot">바리스타 로봇</h3>
-          <p data-en="A commercial collaborative robot with our own software, serving coffee in the bunker café.">상용 협동로봇에 자체 소프트웨어를 얹어 벙커 카페에서 일합니다.</p>
+          <div class="no"><b>No.2</b><span class="tag jjok" data-en="FIRST HALF 2027" data-ja="2027年上半期" data-zh="2027年上半年">2027 상반기</span></div>
+          <h3 data-en="Barista robot" data-ja="バリスタロボット" data-zh="咖啡师机器人">바리스타 로봇</h3>
+          <p data-en="A commercial collaborative robot with our own software, serving coffee in the bunker café." data-ja="市販の協働ロボットに自社ソフトウェアを載せ、バンカーのカフェで働きます。" data-zh="在商用协作机器人上搭载自研软件，在掩体咖啡区工作。">상용 협동로봇에 자체 소프트웨어를 얹어 벙커 카페에서 일합니다.</p>
         </article>
         <article class="robot">
-          <div class="no"><b>No.3</b><span class="tag ghost" data-en="PROPOSAL">제안 단계</span></div>
-          <h3 data-en="Ice-cream robot">아이스크림 로봇</h3>
-          <p data-en="Reusing the No.2 robot-arm platform, proposed for the 1F shop.">2호기 로봇팔 플랫폼을 재사용해 1층 상점에 제안하고 있습니다.</p>
+          <div class="no"><b>No.3</b><span class="tag ghost" data-en="PROPOSAL" data-ja="提案段階" data-zh="提案阶段">제안 단계</span></div>
+          <h3 data-en="Ice-cream robot" data-ja="アイスクリームロボット" data-zh="冰淇淋机器人">아이스크림 로봇</h3>
+          <p data-en="Reusing the No.2 robot-arm platform, proposed for the 1F shop." data-ja="2号機のロボットアーム基盤を再利用し、1階店舗に提案しています。" data-zh="复用2号机的机械臂平台，正向1楼店铺提案。">2호기 로봇팔 플랫폼을 재사용해 1층 상점에 제안하고 있습니다.</p>
         </article>
       </div>
     </div>
@@ -417,17 +426,17 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">AI Bunker Membership</div>
-        <h2 data-en="Everyone is a signer">모두가 서명인이다</h2>
-        <p data-en="There are no ranks in the bunker. Developers, artisans, business owners and students share one workbench. The higher the tier, the bigger the benefits on drinks, events, education and space.">벙커에는 직급이 없습니다. 개발자·장인·사장님·학생이 같은 작업대에서 배우며 만듭니다. 등급이 오를수록 음료·행사·교육·장소 혜택이 커집니다.</p>
+        <h2 data-en="Everyone is a signer" data-ja="みんなが署名人" data-zh="人人都是署名人">모두가 서명인이다</h2>
+        <p data-en="There are no ranks in the bunker. Developers, artisans, business owners and students share one workbench. The higher the tier, the bigger the benefits on drinks, events, education and space." data-ja="バンカーに役職はありません。開発者・職人・経営者・学生が同じ作業台で学び、つくります。等級が上がるほど、ドリンク・イベント・教育・スペースの特典が大きくなります。" data-zh="掩体里没有职级。开发者、匠人、店主、学生在同一张工作台前学习与创造。等级越高，饮品、活动、教育和场地的优惠越多。">벙커에는 직급이 없습니다. 개발자·장인·사장님·학생이 같은 작업대에서 배우며 만듭니다. 등급이 오를수록 음료·행사·교육·장소 혜택이 커집니다.</p>
       </div>
       <div class="tiers">
-        <article class="tier"><span class="lv">COMMUNITY</span><h3 data-en="Community">커뮤니티</h3><p class="who" data-en="Anyone from the AI Ajit community. Free.">AI 아지트 누구나 · 무료</p><ul><li data-en="Monthly open seminar">월 1회 오픈 세미나</li><li data-en="Early event notices">행사 우선 안내</li></ul></article>
-        <article class="tier"><span class="lv">BUNKER</span><h3 data-en="Bunker">벙커</h3><p class="who" data-en="People who come to learn regularly">정기적으로 배우러 오는 사람</p><ul><li data-en="Free seating in the lounge">라운지 자유 좌석</li><li data-en="Drink &amp; event discounts">음료·행사 할인</li></ul></article>
-        <article class="tier"><span class="lv">BUILDER</span><h3 data-en="Builder">빌더</h3><p class="who" data-en="Graduates who make things">수료생, 무언가 만드는 사람</p><ul><li data-en="Workzone &amp; equipment booking">작업존·장비 예약</li><li data-en="Study groups">스터디</li></ul></article>
-        <article class="tier"><span class="lv">PRO</span><h3 data-en="Pro">프로</h3><p class="who" data-en="People who come and go and use the equipment">상시 출입하며 장비를 쓰는 사람</p><ul><li data-en="Always-on entry code">출입코드 상시 출입</li><li data-en="Personal locker">사물함</li></ul></article>
-        <article class="tier top"><span class="lv">33 SIGNERS</span><h3 data-en="The 33 Signers">서명인 33인</h3><p class="who" data-en="Core investors and contributors, by selection">핵심 투자자·공헌자 · 선정제</p><ul><li data-en="VIP invitations">각종 행사 VIP 초대</li><li data-en="Sign the AI Declaration each March 1">매년 3월 1일 AI 선언서 서명</li></ul></article>
+        <article class="tier"><span class="lv">COMMUNITY</span><h3 data-en="Community" data-ja="コミュニティ" data-zh="社区">커뮤니티</h3><p class="who" data-en="Anyone from the AI Ajit community. Free." data-ja="AIアジトのメンバーなら誰でも · 無料" data-zh="AI阿吉特社区的任何人 · 免费">AI 아지트 누구나 · 무료</p><ul><li data-en="Monthly open seminar" data-ja="月1回のオープンセミナー" data-zh="每月1次公开讲座">월 1회 오픈 세미나</li><li data-en="Early event notices" data-ja="イベントの優先案内" data-zh="活动优先通知">행사 우선 안내</li></ul></article>
+        <article class="tier"><span class="lv">BUNKER</span><h3 data-en="Bunker" data-ja="バンカー" data-zh="掩体">벙커</h3><p class="who" data-en="People who come to learn regularly" data-ja="定期的に学びに来る人" data-zh="定期来学习的人">정기적으로 배우러 오는 사람</p><ul><li data-en="Free seating in the lounge" data-ja="ラウンジの自由席" data-zh="休息厅自由座位">라운지 자유 좌석</li><li data-en="Drink &amp; event discounts" data-ja="ドリンク・イベント割引" data-zh="饮品与活动折扣">음료·행사 할인</li></ul></article>
+        <article class="tier"><span class="lv">BUILDER</span><h3 data-en="Builder" data-ja="ビルダー" data-zh="创造者">빌더</h3><p class="who" data-en="Graduates who make things" data-ja="修了生、何かをつくる人" data-zh="结业学员，动手创造的人">수료생, 무언가 만드는 사람</p><ul><li data-en="Workzone &amp; equipment booking" data-ja="作業ゾーン・機材の予約" data-zh="工作区与设备预约">작업존·장비 예약</li><li data-en="Study groups" data-ja="勉強会" data-zh="学习小组">스터디</li></ul></article>
+        <article class="tier"><span class="lv">PRO</span><h3 data-en="Pro" data-ja="プロ" data-zh="专业">프로</h3><p class="who" data-en="People who come and go and use the equipment" data-ja="常時出入りし、機材を使う人" data-zh="常驻并使用设备的人">상시 출입하며 장비를 쓰는 사람</p><ul><li data-en="Always-on entry code" data-ja="常時入館コード" data-zh="全天门禁码">출입코드 상시 출입</li><li data-en="Personal locker" data-ja="専用ロッカー" data-zh="专用储物柜">사물함</li></ul></article>
+        <article class="tier top"><span class="lv">33 SIGNERS</span><h3 data-en="The 33 Signers" data-ja="署名人33人" data-zh="33位署名人">서명인 33인</h3><p class="who" data-en="Core investors and contributors, by selection" data-ja="中核の投資者・貢献者 · 選定制" data-zh="核心投资人与贡献者 · 遴选制">핵심 투자자·공헌자 · 선정제</p><ul><li data-en="VIP invitations" data-ja="各種イベントのVIP招待" data-zh="各类活动VIP邀请">각종 행사 VIP 초대</li><li data-en="Sign the AI Declaration each March 1" data-ja="毎年3月1日にAI宣言書へ署名" data-zh="每年3月1日签署AI宣言书">매년 3월 1일 AI 선언서 서명</li></ul></article>
       </div>
-      <p class="note" style="margin-top:16px" data-en="Fees are set during the soft-opening period. Community tier is always free.">회비는 소프트 오픈 기간에 확정합니다. 커뮤니티 등급은 무료입니다.</p>
+      <p class="note" style="margin-top:16px" data-en="Fees are set during the soft-opening period. Community tier is always free." data-ja="会費はソフトオープン期間中に確定します。コミュニティ等級は無料です。" data-zh="会费将在试营业期间确定。社区等级永久免费。">회비는 소프트 오픈 기간에 확정합니다. 커뮤니티 등급은 무료입니다.</p>
     </div>
   </section>
 
@@ -435,20 +444,20 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
     <div class="wrap">
       <div class="decl-main">
         <div class="eyebrow">The AI Declaration</div>
-        <h2 data-en="A declaration for the AI era:<br>people and technology in harmony">AI 시대,<br>사람과 기술이 조화롭게 공존하는 시대 선언</h2>
-        <blockquote data-en="What we want to be free of is not machines but dependence. Anyone can use AI, anyone can build a robot. Machines lighten people's work without taking people's place, and the wisdom of human hands is recorded and handed to the next generation.">우리가 벗어나려는 것은 기계가 아니라 종속이다. 누구나 AI를 다루고 누구나 로봇을 만들 수 있다. 기계는 사람의 수고를 덜되 사람의 자리를 빼앗지 않으며, 장인의 손끝에 쌓인 지혜는 기계에 기록되어 다음 세대로 이어진다.</blockquote>
-        <cite data-en="SPACE 3133 AI Declaration · first reading March 1, 2027 (Dangi 4360)">스페이스 3133 AI 선언서 · 단기 4360년(2027년) 3월 1일 첫 낭독</cite>
+        <h2 data-en="A declaration for the AI era:<br>people and technology in harmony" data-ja="AI時代、<br>人と技術が調和して共に生きる時代の宣言" data-zh="AI时代，<br>人与科技和谐共存的时代宣言">AI 시대,<br>사람과 기술이 조화롭게 공존하는 시대 선언</h2>
+        <blockquote data-en="What we want to be free of is not machines but dependence. Anyone can use AI, anyone can build a robot. Machines lighten people's work without taking people's place, and the wisdom of human hands is recorded and handed to the next generation." data-ja="私たちが抜け出したいのは機械ではなく、従属である。誰もがAIを扱い、誰もがロボットをつくれる。機械は人の手間を減らしても人の居場所を奪わず、職人の指先に宿る知恵は機械に記録され、次の世代へ受け継がれる。" data-zh="我们要摆脱的不是机器，而是依附。人人都能驾驭AI，人人都能制造机器人。机器减轻人的劳苦，却不夺走人的位置；匠人指尖积累的智慧被机器记录下来，传给下一代。">우리가 벗어나려는 것은 기계가 아니라 종속이다. 누구나 AI를 다루고 누구나 로봇을 만들 수 있다. 기계는 사람의 수고를 덜되 사람의 자리를 빼앗지 않으며, 장인의 손끝에 쌓인 지혜는 기계에 기록되어 다음 세대로 이어진다.</blockquote>
+        <cite data-en="SPACE 3133 AI Declaration · first reading March 1, 2027 (Dangi 4360)" data-ja="SPACE 3133 AI宣言書 · 2027年3月1日（檀紀4360年）初朗読" data-zh="SPACE 3133 AI宣言书 · 2027年3月1日（檀纪4360年）首次宣读">스페이스 3133 AI 선언서 · 단기 4360년(2027년) 3월 1일 첫 낭독</cite>
         <div>
           <div class="signers" id="signers" aria-hidden="true"></div>
-          <p class="small" data-en="33 seats, filled by selection with core investors and contributors who are essential to the project.">서명인 33석 · 사업에 꼭 필요한 핵심 투자자와 공헌자를 선정합니다.</p>
+          <p class="small" data-en="33 seats, filled by selection with core investors and contributors who are essential to the project." data-ja="署名人33席。事業に欠かせない中核の投資者と貢献者を選定します。" data-zh="33个署名席位，从对事业不可或缺的核心投资人与贡献者中遴选。">서명인 33석 · 사업에 꼭 필요한 핵심 투자자와 공헌자를 선정합니다.</p>
         </div>
       </div>
       <div class="vows">
-        <h3 data-en="Three Pledges · signed when joining">공약 3장 · 입회 시 서명</h3>
-        <div class="vow"><b data-en="1. For people">하나, 사람을 위하여</b><span data-en="Technology serves human dignity and work, and is never used to replace or exclude people.">기술은 사람의 존엄과 일을 위한 것이며, 사람을 대체·배제하는 데 쓰지 않는다.</span></div>
-        <div class="vow"><b data-en="2. To the last person">둘, 마지막 한 사람까지</b><span data-en="What we learn, we teach. What we build, we share.">배운 것은 가르치고, 만든 것은 공개한다.</span></div>
-        <div class="vow"><b data-en="3. Clear and right">셋, 맑고 바르게</b><span data-en="Every experiment runs within safety and transparency. People explain and take responsibility for what machines do.">모든 실험은 안전과 투명성 안에서, 기계가 한 일은 사람이 설명하고 책임진다.</span></div>
-        <a class="btn btn-seal" href="#contact" style="align-self:flex-start;margin-top:20px" data-en="Talk to us about joining">참여 문의하기</a>
+        <h3 data-en="Three Pledges · signed when joining" data-ja="公約3章 · 入会時に署名" data-zh="公约三章 · 入会时签署">공약 3장 · 입회 시 서명</h3>
+        <div class="vow"><b data-en="1. For people" data-ja="一、人のために" data-zh="一、为了人">하나, 사람을 위하여</b><span data-en="Technology serves human dignity and work, and is never used to replace or exclude people." data-ja="技術は人の尊厳と仕事のためのものであり、人を置き換えたり排除したりするためには使わない。" data-zh="技术是为了人的尊严与工作，绝不用来取代或排斥人。">기술은 사람의 존엄과 일을 위한 것이며, 사람을 대체·배제하는 데 쓰지 않는다.</span></div>
+        <div class="vow"><b data-en="2. To the last person" data-ja="二、最後の一人まで" data-zh="二、直到最后一个人">둘, 마지막 한 사람까지</b><span data-en="What we learn, we teach. What we build, we share." data-ja="学んだことは教え、つくったものは公開する。" data-zh="学到的就去教，做出的就公开。">배운 것은 가르치고, 만든 것은 공개한다.</span></div>
+        <div class="vow"><b data-en="3. Clear and right" data-ja="三、清く正しく" data-zh="三、清正光明">셋, 맑고 바르게</b><span data-en="Every experiment runs within safety and transparency. People explain and take responsibility for what machines do." data-ja="すべての実験は安全と透明性の中で行い、機械がしたことは人が説明し、責任を負う。" data-zh="所有实验都在安全与透明之中进行；机器做的事，由人来说明并负责。">모든 실험은 안전과 투명성 안에서, 기계가 한 일은 사람이 설명하고 책임진다.</span></div>
+        <a class="btn btn-seal" href="#contact" style="align-self:flex-start;margin-top:20px" data-en="Talk to us about joining" data-ja="参加について問い合わせる" data-zh="咨询参与方式">참여 문의하기</a>
       </div>
     </div>
   </section>
@@ -457,15 +466,15 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Roadmap</div>
-        <h2 data-en="Toward the first Declaration Day">첫 선언일까지</h2>
+        <h2 data-en="Toward the first Declaration Day" data-ja="最初の宣言の日へ" data-zh="迈向第一个宣言日">첫 선언일까지</h2>
       </div>
       <ol class="road">
-        <li><time data-en="Mid-Nov 2026">2026.11 중순</time><span data-en="Soft opening: 2F lounge, 3F tasting room, bunker one-day class">소프트 오픈 — 2층 라운지, 3층 테이스팅룸, 벙커 원데이</span></li>
-        <li><time data-en="Late Nov 2026">2026.11 말</time><span data-en="Grand opening, private hire launches">그랜드 오픈 — 대관 상품 출시</span></li>
-        <li class="key"><time>2026.12.01</time><span data-en="All bunker courses start">벙커 교육 전 과정 동시 개강</span></li>
-        <li><time>2026.12–2027.01</time><span data-en="Saju robot v1">사주 로봇 v1</span></li>
-        <li class="key"><time>2027.03.01</time><span data-en="First Declaration Day: 33 signers, Bunker Demo Day, saju robot v2">첫 선언일 — 서명인 33인 서명, 벙커 데모데이, 사주 로봇 v2</span></li>
-        <li><time data-en="From Apr 2027">2027.04~</time><span data-en="Rooftop evenings, barista robot">루프탑 야간 운영, 바리스타 로봇</span></li>
+        <li><time data-en="Mid-Nov 2026" data-ja="2026年11月中旬" data-zh="2026年11月中旬">2026.11 중순</time><span data-en="Soft opening: 2F lounge, 3F tasting room, bunker one-day class" data-ja="ソフトオープン：2階ラウンジ、3階テイスティングルーム、バンカーのワンデー講座" data-zh="试营业：2楼休息厅、3楼品鉴室、掩体一日课程">소프트 오픈 — 2층 라운지, 3층 테이스팅룸, 벙커 원데이</span></li>
+        <li><time data-en="Late Nov 2026" data-ja="2026年11月下旬" data-zh="2026年11月下旬">2026.11 말</time><span data-en="Grand opening, private hire launches" data-ja="グランドオープン、貸切プラン開始" data-zh="正式开业，推出包场产品">그랜드 오픈 — 대관 상품 출시</span></li>
+        <li class="key"><time>2026.12.01</time><span data-en="All bunker courses start" data-ja="バンカー全コース同時開講" data-zh="掩体全部课程同时开课">벙커 교육 전 과정 동시 개강</span></li>
+        <li><time>2026.12–2027.01</time><span data-en="Saju robot v1" data-ja="四柱推命ロボット v1" data-zh="命理机器人 v1">사주 로봇 v1</span></li>
+        <li class="key"><time>2027.03.01</time><span data-en="First Declaration Day: 33 signers, Bunker Demo Day, saju robot v2" data-ja="最初の宣言の日：署名人33人、バンカー デモデー、四柱推命ロボット v2" data-zh="第一个宣言日：33位署名人签署、掩体演示日、命理机器人 v2">첫 선언일 — 서명인 33인 서명, 벙커 데모데이, 사주 로봇 v2</span></li>
+        <li><time data-en="From Apr 2027" data-ja="2027年4月〜" data-zh="2027年4月起">2027.04~</time><span data-en="Rooftop evenings, barista robot" data-ja="ルーフトップ夜間営業、バリスタロボット" data-zh="屋顶夜间营业、咖啡师机器人">루프탑 야간 운영, 바리스타 로봇</span></li>
       </ol>
     </div>
   </section>
@@ -474,30 +483,30 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
     <div class="wrap contact">
       <div class="contact-l">
         <div class="eyebrow">Stay in touch</div>
-        <h2 data-en="Be the first to hear about opening and new classes">오픈 소식과 개강 안내를 가장 먼저</h2>
+        <h2 data-en="Be the first to hear about opening and new classes" data-ja="オープンと開講のお知らせをいち早く" data-zh="第一时间获取开业与开课消息">오픈 소식과 개강 안내를 가장 먼저</h2>
         <form id="notify" novalidate>
           <div class="field">
-            <label for="email" data-en="Email">이메일</label>
+            <label for="email" data-en="Email" data-ja="メール" data-zh="电子邮箱">이메일</label>
             <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
           </div>
           <div class="field" style="flex:0 1 230px">
-            <label for="interest" data-en="Interested in">관심 분야</label>
+            <label for="interest" data-en="Interested in" data-ja="興味のある分野" data-zh="感兴趣的方向">관심 분야</label>
             <select id="interest" name="interest">
-              <option value="edu" data-en="AI classes (B1)">AI 교육 (B1)</option>
-              <option value="visit" data-en="Visit (2F · 3F)">방문 (2층·3층)</option>
-              <option value="member" data-en="Membership">멤버십</option>
-              <option value="b2b" data-en="Corporate / private hire">기업·대관</option>
-              <option value="partner" data-en="Robot &amp; AI partnership">로봇·AI 협찬</option>
+              <option value="edu" data-en="AI classes (B1)" data-ja="AI講座（B1）" data-zh="AI课程（B1）">AI 교육 (B1)</option>
+              <option value="visit" data-en="Visit (2F · 3F)" data-ja="来館（2階・3階）" data-zh="到访（2楼·3楼）">방문 (2층·3층)</option>
+              <option value="member" data-en="Membership" data-ja="メンバーシップ" data-zh="会员">멤버십</option>
+              <option value="b2b" data-en="Corporate / private hire" data-ja="企業・貸切" data-zh="企业·包场">기업·대관</option>
+              <option value="partner" data-en="Robot &amp; AI partnership" data-ja="ロボット・AI協賛" data-zh="机器人·AI合作">로봇·AI 협찬</option>
             </select>
           </div>
-          <button class="submit" type="submit" data-en="Notify me">소식 받기</button>
+          <button class="submit" type="submit" data-en="Notify me" data-ja="お知らせを受け取る" data-zh="订阅消息">소식 받기</button>
         </form>
         <p class="msg" id="msg" role="status" aria-live="polite"></p>
       </div>
       <div class="contact-r">
-        <b data-en="Groups, companies &amp; partners">단체·기업·제휴 문의</b>
+        <b data-en="Groups, companies &amp; partners" data-ja="団体・企業・提携のお問い合わせ" data-zh="团体、企业及合作咨询">단체·기업·제휴 문의</b>
         <span class="muted">[문의 이메일]</span>
-        <span class="muted" data-en="KakaoTalk channel [name] · Instagram [@account]">카카오톡 채널 [채널명] · 인스타그램 [@계정]</span>
+        <span class="muted" data-en="KakaoTalk channel [name] · Instagram [@account]" data-ja="カカオトーク チャンネル [名前] · Instagram [@アカウント]" data-zh="KakaoTalk频道 [名称] · Instagram [@账号]">카카오톡 채널 [채널명] · 인스타그램 [@계정]</span>
       </div>
     </div>
   </section>
@@ -506,7 +515,7 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
 <footer>
   <div class="wrap">
     <b>SPACE 3133</b>
-    <span data-en="5 Insadong 10-gil, Jongno-gu, Seoul (Gwanhun-dong 31·33)">서울 종로구 인사동10길 5 (관훈동 31·33번지)</span>
+    <span data-en="5 Insadong 10-gil, Jongno-gu, Seoul (Gwanhun-dong 31·33)" data-ja="ソウル特別市 鍾路区 仁寺洞10キル5（寛勲洞31・33番地）" data-zh="首尔市钟路区仁寺洞10街5号（宽勋洞31·33号地）">서울 종로구 인사동10길 5 (관훈동 31·33번지)</span>
     <span>© 2026 SPACE 3133</span>
   </div>
 </footer>
@@ -517,31 +526,38 @@ footer b{font-family:var(--f-latin);color:var(--ink);letter-spacing:.06em}
   var box = document.getElementById('signers');
   for (var i = 0; i < 33; i++) { var c = document.createElement('i'); if (i < SIGNED) c.className = 'on'; box.appendChild(c); }
 
+  var LANGS = ['ko','en','ja','zh'];
+  var HTML_LANG = {ko:'ko', en:'en', ja:'ja', zh:'zh-Hans'};
+  var cur = 'ko';
   var nodes = document.querySelectorAll('[data-en]');
   nodes.forEach(function(n){ n.dataset.ko = n.innerHTML; });
   function setLang(lang){
-    nodes.forEach(function(n){ n.innerHTML = lang === 'en' ? n.dataset.en : n.dataset.ko; });
-    document.documentElement.lang = lang;
-    document.getElementById('lang-ko').setAttribute('aria-pressed', String(lang === 'ko'));
-    document.getElementById('lang-en').setAttribute('aria-pressed', String(lang === 'en'));
+    if (LANGS.indexOf(lang) < 0) lang = 'ko';
+    cur = lang;
+    nodes.forEach(function(n){ n.innerHTML = n.dataset[lang] || n.dataset.en; });
+    document.documentElement.lang = HTML_LANG[lang];
+    LANGS.forEach(function(l){ document.getElementById('lang-' + l).setAttribute('aria-pressed', String(l === lang)); });
     try { localStorage.setItem('s3133-lang', lang); } catch (e) {}
   }
-  document.getElementById('lang-ko').addEventListener('click', function(){ setLang('ko'); });
-  document.getElementById('lang-en').addEventListener('click', function(){ setLang('en'); });
+  LANGS.forEach(function(l){ document.getElementById('lang-' + l).addEventListener('click', function(){ setLang(l); }); });
   var start = 'ko';
-  try { start = localStorage.getItem('s3133-lang') || ((navigator.language || '').indexOf('ko') === 0 ? 'ko' : 'en'); } catch (e) {}
-  if (start === 'en') setLang('en');
+  try {
+    var saved = localStorage.getItem('s3133-lang');
+    var nav = (navigator.language || '').toLowerCase();
+    start = saved || (nav.indexOf('ko') === 0 ? 'ko' : nav.indexOf('ja') === 0 ? 'ja' : nav.indexOf('zh') === 0 ? 'zh' : 'en');
+  } catch (e) {}
+  if (start !== 'ko') setLang(start);
 
   var form = document.getElementById('notify'), msg = document.getElementById('msg');
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var en = document.documentElement.lang === 'en';
     var email = document.getElementById('email');
-    if (!email.value || !email.checkValidity()) {
-      msg.textContent = en ? 'Please enter a valid email address, e.g. you@example.com.' : '이메일 주소를 확인해 주세요. 예: you@example.com';
-      email.focus(); return;
-    }
-    msg.textContent = en ? 'Sign-up opens soon. We have not saved your email yet.' : '신청 접수는 곧 열립니다. 아직 이메일은 저장되지 않았습니다.';
+    var M = {
+      bad: {ko:'이메일 주소를 확인해 주세요. 예: you@example.com', en:'Please enter a valid email address, e.g. you@example.com.', ja:'メールアドレスをご確認ください。例：you@example.com', zh:'请检查电子邮箱地址，例如：you@example.com'},
+      soon: {ko:'신청 접수는 곧 열립니다. 아직 이메일은 저장되지 않았습니다.', en:'Sign-up opens soon. We have not saved your email yet.', ja:'受付はまもなく開始します。メールアドレスはまだ保存されていません。', zh:'报名即将开放，您的邮箱暂未保存。'}
+    };
+    if (!email.value || !email.checkValidity()) { msg.textContent = M.bad[cur]; email.focus(); return; }
+    msg.textContent = M.soon[cur];
   });
 })();
 </script>
